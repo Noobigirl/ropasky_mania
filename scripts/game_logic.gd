@@ -72,3 +72,8 @@ var all_moves_list: Array = [
 	shield_set,
 	corruption_set,
 ]
+
+# this function will receive the moves of each player and return the winner or 0 if there is a tie
+func who_won(curent_moves: Array):
+	pass
+	
