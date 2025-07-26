@@ -3,15 +3,20 @@
 [sub_resource type="GDScript" id="GDScript_hx5ui"]
 resource_name = "button_move"
 script/source = "extends Button
-@export var move: String
 
+@export var move: String
 
 func set_move(mov) -> void:
 	move = mov
-	text = mov # just for now:
+	text = mov # just for now:#
+	MoveHandling.stop_playing.connect(disable_button)
 
 func move_feedback() -> void:
 	print(\"you played: \"+ move) # debugging
+
+func disable_button() -> void:
+	disabled = true
+	
 "
 
 [node name="Button" type="Button"]

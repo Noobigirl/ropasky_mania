@@ -63,3 +63,8 @@ I will consider the project complete if:
 - **GDScript** – For scripting
 - [Krita](https://krita.org/) and [Piskel](https://www.piskelapp.com/) – For creating game art
 - **Github Copilot** to assist  me when I am stuck
+
+## Credit
+- **Sound effects**: [SoundReality] on pixabay
+					Sound Effect by [DRAGON-STUDIO](https://pixabay.com/users/dragon-studio-38165424/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=37689) from `Pixabay`(https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=376897)
+		
