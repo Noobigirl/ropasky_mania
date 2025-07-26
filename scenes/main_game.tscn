@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpq8eeutajbpd"]
+
+[ext_resource type="PackedScene" uid="uid://doofcefyx38qp" path="res://scenes/Hand.tscn" id="1_72e8q"]
+[ext_resource type="PackedScene" uid="uid://du3p3gkii1rg2" path="res://scenes/Move_set.tscn" id="2_d2op2"]
+
+[node name="main_game" type="Node2D"]
+
+[node name="Hand" parent="." instance=ExtResource("1_72e8q")]
+
+[node name="move_set" parent="." instance=ExtResource("2_d2op2")]

@@ -14,51 +14,51 @@ var all_moves: Array = [
 
 ## --- Relationships between each moves
 var rock_set: Dictionary = {
-	"beat": [],
-	"lose": [],
-	"tie": [],
+	"beat": ["fire", "scissors"],
+	"lose": ["water", "paper", "sword"],
+	"tie": ["rock", "shield"],
 }
 
 var paper_set: Dictionary = {
-	"beat": [],
-	"lose": [],
-	"tie": [],
+	"beat": ["rock", "water", "shield"],
+	"lose": ["fire", "scissors", "sword"],
+	"tie": ["paper"],
 }
 
 var scissors_set: Dictionary = {
-	"beat": [],
-	"lose": [],
-	"tie": [],
+	"beat": ["paper", "shield"],
+	"lose": ["rock", "fire", "sword"],
+	"tie": ["scissors", "water"],
 }
 
 var fire_set: Dictionary = {
-	"beat": [],
-	"lose": [],
-	"tie": [],
+	"beat": ["paper", "shield", "scissors"],
+	"lose": ["rock", "water"],
+	"tie": ["fire", "sword"],
 }
 
 var water_set: Dictionary = {
-	"beat": [],
-	"lose": [],
-	"tie": [],
+	"beat": ["fire", "rock", "sword"],
+	"lose": ["paper", "shield"],
+	"tie": ["water", "scissors"],
 }
 
 var sword_set: Dictionary = {
-	"beat": [],
-	"lose": [],
-	"tie": [],
+	"beat": ["Scissors", "Rock", "Paper"],
+	"lose": ["Water", "Fire", "Shield"],
+	"tie": ["Sword"],
 }
 
 var shield_set: Dictionary = {
-	"beat": [],
-	"lose": [],
-	"tie": [],
+	"beat": ["Water", "Sword"],
+	"lose": ["Fire", "Paper", "Scissors"],
+	"tie": ["Shield", "Rock" ],
 }
 
 var corruption_set: Dictionary = {
 	"beat": [],
 	"lose": [],
-	"tie": [],
+	"tie": ["Rock", "Paper", "Scissors", "Fire", "Water", "Sword", "Shield", "Corruption"],
 }
 
 ## --- 

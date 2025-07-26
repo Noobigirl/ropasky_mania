@@ -1,0 +1,45 @@
+[gd_scene load_steps=9 format=3 uid="uid://du3p3gkii1rg2"]
+
+[ext_resource type="Script" uid="uid://bpdy6s5qensg3" path="res://scripts/move_set.gd" id="1_bpfq3"]
+[ext_resource type="PackedScene" uid="uid://cxglhn1gc78q4" path="res://scenes/Move_button.tscn" id="2_f6tx7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d3ffu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mln7y"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bpfq3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f6tx7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_km4a3"]
+
+[sub_resource type="Theme" id="Theme_m7i7v"]
+VScrollBar/styles/grabber = SubResource("StyleBoxEmpty_d3ffu")
+VScrollBar/styles/grabber_highlight = SubResource("StyleBoxEmpty_mln7y")
+VScrollBar/styles/grabber_pressed = SubResource("StyleBoxEmpty_bpfq3")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_f6tx7")
+VScrollBar/styles/scroll_focus = SubResource("StyleBoxEmpty_km4a3")
+
+[node name="move_set" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bpfq3")
+movebutton = ExtResource("2_f6tx7")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 424.0
+offset_top = 602.0
+offset_right = 523.0
+offset_bottom = 894.0
+theme = SubResource("Theme_m7i7v")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 10

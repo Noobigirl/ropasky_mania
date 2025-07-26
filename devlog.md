@@ -10,52 +10,53 @@ Here you’ll find all the updates, ideas, and behind-the-scenes changes as the 
 Each move can win, lose, or tie depending on logic, intuition, and thematic consistency:
 
 **Summary**
-| Move           | Beats                        | Loses To               | Ties With       |
-| -------------- | ---------------------------- | ---------------------- | --------------- |
-| **Rock**       | Fire, Scissors               | Water, Paper, Sword    | Rock            |
-| **Paper**      | Rock, Water                  | Fire, Scissors, Shield | Paper           |
-| **Scissors**   | Paper, Shield                | Rock, Fire             | Scissors, Sword |
-| **Fire**       | Paper, Shield                | Rock, Water            | Fire, Sword     |
-| **Water**      | Fire, Rock                   | Paper, Shield          | Water           |
-| **Sword**      | Scissors, Shield             | Rock, Water            | Sword, Fire     |
-| **Shield**     | Water, Sword                 | Fire, Scissors         | Shield, Paper   |
-| **Corruption** | *Ties with any move (3-use)* | *Only in Hard mode*    | Corruption      |
+| **Move**       | **Beats**                    | **Loses To**          | **Ties With**                                                 |
+| -------------- | ---------------------------- | --------------------- | ------------------------------------------------------------- |
+| **Rock**       | Fire, Scissors               | Water, Paper, Sword   | Rock, Shield                                                  |
+| **Paper**      | Rock, Water, Shield          | Fire, Scissors, Sword | Paper                                                         |
+| **Scissors**   | Paper, Shield                | Rock, Fire, Sword     | Scissors, Water                                               |
+| **Fire**       | Paper, Shield, Scissors      | Rock, Water            | Fire, Sword                                                   |
+| **Water**      | Fire, Rock, Sword            | Paper, Shield         | Water, Scissors                                               |
+| **Sword**      | Scissors, Rock, Paper        | Water, Fire, Shield   | Sword                                                         |
+| **Shield**     | Water, Sword                 | Fire, Paper, Scissors | Shield, Rock                                                  |
+| **Corruption** |             -                |       -               | Rock, Paper, Scissors, Fire, Water, Sword, Shield, Corruption |
+
 
 
 ### 🔥 Fire  
-- **Beats:** Paper, Shield  
+- **Beats:** Paper, Shield, Scissors    
 - **Loses to:** Rock, Water  
 - **Ties with:** Fire, Sword  
 
 ### 💧 Water  
-- **Beats:** Fire, Rock  
+- **Beats:** Fire, Rock, Sword       
 - **Loses to:** Shield, Paper  
-- **Ties with:** Water  
+- **Ties with:**  Water, Scissors  
 
 ### 🪨 Rock  
 - **Beats:** Fire, Scissors  
 - **Loses to:** Water, Paper, Sword  
-- **Ties with:** Rock  
+- **Ties with:** Rock, Shield
 
 ### 📄 Paper  
-- **Beats:** Rock, Water  
-- **Loses to:** Fire, Scissors, Shield  
+- **Beats:** Rock, Water, Shield 
+- **Loses to:** Fire, Scissors, Sword 
 - **Ties with:** Paper  
 
 ### ✂️ Scissors  
 - **Beats:** Paper, Shield  
-- **Loses to:** Rock, Fire  
-- **Ties with:** Scissors, Sword 
+- **Loses to:** Rock, Fire, Sword
+- **Ties with:** Scissors, Water 
 
 ### 🗡️ Sword  
-- **Beats:** Scissors, Shield  
-- **Loses to:** Rock, Water  
-- **Ties with:** Sword, Fire  
+- **Beats:** Scissors, Rock, Paper  
+- **Loses to:** Water, Fire, Shield  
+- **Ties with:** Sword
 
 ### 🛡️ Shield  
 - **Beats:** Water, Sword  
-- **Loses to:** Fire, Scissors  
-- **Ties with:** Shield, Paper  
+- **Loses to:** Fire, Paper, Scissors  
+- **Ties with:** Shield, Rock 
 
 ### 🪙 Corruption (⚠️ Limited to 3 per player)
 - Always results in a tie (neutralizes opponent's move)

@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxglhn1gc78q4"]
+
+[sub_resource type="GDScript" id="GDScript_hx5ui"]
+resource_name = "button_move"
+script/source = "extends Button
+@export var move: String
+
+
+func set_move(mov) -> void:
+	move = mov
+	text = mov # just for now:
+
+func move_feedback() -> void:
+	print(\"you played: \"+ move) # debugging
+"
+
+[node name="Button" type="Button"]
+custom_minimum_size = Vector2(90, 90)
+offset_right = 8.0
+offset_bottom = 8.0
+mouse_filter = 1
+script = SubResource("GDScript_hx5ui")
+
+[connection signal="pressed" from="." to="." method="move_feedback"]
