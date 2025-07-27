@@ -1,10 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://doofcefyx38qp"]
+[gd_scene load_steps=12 format=3 uid="uid://doofcefyx38qp"]
 
 [ext_resource type="Script" uid="uid://bt8cn06tqsdu7" path="res://scripts/hand.gd" id="1_8fxms"]
 [ext_resource type="Texture2D" uid="uid://d1vx5ktxkkwsg" path="res://blue_block.png" id="2_bw2j2"]
 [ext_resource type="Texture2D" uid="uid://bne74gnj4fgcf" path="res://green_block.png" id="3_fx8y4"]
 [ext_resource type="Texture2D" uid="uid://cntsn2fv7vjaj" path="res://red_block.png" id="4_8fxms"]
 [ext_resource type="AudioStream" uid="uid://boph3f44lkaer" path="res://assets/music/vfx/swoosh-sound-effect-for-fight-scenes-or-transitions-2-149890.ogg" id="5_fx8y4"]
+[ext_resource type="Texture2D" uid="uid://18plt7ejgk84" path="res://assets/sprites/hands/paper.png" id="6_yk5nw"]
+[ext_resource type="Texture2D" uid="uid://d2h8aeriq3ynt" path="res://assets/sprites/hands/scissors.png" id="7_e7gxy"]
+[ext_resource type="Texture2D" uid="uid://cl7xj00tl0vrd" path="res://assets/sprites/hands/rock.png" id="8_25qrx"]
 
 [sub_resource type="Animation" id="Animation_yk5nw"]
 length = 2.0
@@ -69,7 +72,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.56667, 2),
 "transitions": PackedFloat32Array(0.170755, 0.277392, 0.17, 0.277, 0.17, 0.277, 0.17),
 "update": 0,
-"values": [Vector2(273, 804), Vector2(273, 844), Vector2(273, 804), Vector2(273, 844), Vector2(273, 804), Vector2(273, 844), Vector2(273, 804)]
+"values": [Vector2(273, 730), Vector2(273, 780), Vector2(273, 730), Vector2(273, 780), Vector2(273, 730), Vector2(273, 780), Vector2(273, 730)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -81,7 +84,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.9, 1.53333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_bw2j2"), ExtResource("3_fx8y4"), ExtResource("4_8fxms"), ExtResource("4_8fxms")]
+"values": [ExtResource("6_yk5nw"), ExtResource("7_e7gxy"), ExtResource("8_25qrx"), ExtResource("8_25qrx")]
 }
 tracks/2/type = "audio"
 tracks/2/imported = false
@@ -118,6 +121,7 @@ script = ExtResource("1_8fxms")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(273, 804)
+scale = Vector2(0.65, 0.65)
 texture = ExtResource("2_bw2j2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

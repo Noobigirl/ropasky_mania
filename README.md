@@ -67,4 +67,4 @@ I will consider the project complete if:
 ## Credit
 - **Sound effects**: [SoundReality] on pixabay
 					Sound Effect by [DRAGON-STUDIO](https://pixabay.com/users/dragon-studio-38165424/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=37689) from `Pixabay`(https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=376897)
-		
+- **Images**: [Freepik](https://www.flaticon.com/free-icons/fist)

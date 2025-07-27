@@ -1,7 +1,7 @@
 extends Node
 
 ## --- storing all the moves 
-var all_moves: Array = [
+var all_moves: Array = [ # change it to a dictionary and add path to the texture
 	"rock",
 	"paper",
 	"scissors",
