@@ -114,3 +114,18 @@ This mode removes Corruption for pure circular dominance and a highly strategic 
 | Fire    | Scissors  | Water     | Fire      |
 | Scissors| Paper     | Fire      | Scissors  |
 | Paper   | Rock      | Scissors  | Paper     |
+
+---
+## [0.1.0] - 2025-07-26
+
+### Added
+- UI buttons from which the player choses a move
+- Timer for the player to choose a move
+- Determining winner logic
+
+### Changed
+- Better hand "reveal" animation
+
+### Notes
+The game is starting to look like something. Next time I'll be working 
+on the UI (especially the hand) to give it more life. I also need to brainstorm the bot
