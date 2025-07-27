@@ -20,4 +20,6 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	$AudioStreamPlayer.stop()
 	MoveHandling.stop_playing.emit() # preventing the player to choose another move when the timer is over
+	MoveHandling.play_animation.emit() # playing the reveal animation after the timer
+	set_deferred("label.visible", false)
 	#label.visible = false

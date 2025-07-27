@@ -1,41 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://doofcefyx38qp"]
+[gd_scene load_steps=9 format=3 uid="uid://doofcefyx38qp"]
 
 [ext_resource type="Script" uid="uid://bt8cn06tqsdu7" path="res://scripts/hand.gd" id="1_8fxms"]
-[ext_resource type="Texture2D" uid="uid://bwwq3grfuvl5i" path="res://icon.svg" id="1_vchyo"]
 [ext_resource type="Texture2D" uid="uid://d1vx5ktxkkwsg" path="res://blue_block.png" id="2_bw2j2"]
 [ext_resource type="Texture2D" uid="uid://bne74gnj4fgcf" path="res://green_block.png" id="3_fx8y4"]
 [ext_resource type="Texture2D" uid="uid://cntsn2fv7vjaj" path="res://red_block.png" id="4_8fxms"]
 [ext_resource type="AudioStream" uid="uid://boph3f44lkaer" path="res://assets/music/vfx/swoosh-sound-effect-for-fight-scenes-or-transitions-2-149890.ogg" id="5_fx8y4"]
 
 [sub_resource type="Animation" id="Animation_yk5nw"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(273, 804)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:texture")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("1_vchyo")]
-}
-
-[sub_resource type="Animation" id="Animation_u7ihl"]
-resource_name = "reveal_move"
 length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -44,10 +15,10 @@ tracks/0/path = NodePath("Sprite2D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
-"transitions": PackedFloat32Array(3.36358, 0.287175, 3.36358, 0.287, 3.36358),
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.56667, 2),
+"transitions": PackedFloat32Array(0.170755, 0.277392, 0.17, 0.277, 0.17, 0.277, 0.17),
 "update": 0,
-"values": [Vector2(273, 804), Vector2(273, 850), Vector2(273, 804), Vector2(273, 850), Vector2(273, 804)]
+"values": [Vector2(273, 804), Vector2(273, 844), Vector2(273, 804), Vector2(273, 844), Vector2(273, 804), Vector2(273, 844), Vector2(273, 804)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -56,10 +27,10 @@ tracks/1/path = NodePath("Sprite2D:texture")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.466667, 1.46667),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_bw2j2"), ExtResource("3_fx8y4"), ExtResource("4_8fxms")]
+"values": [ExtResource("2_bw2j2"), ExtResource("3_fx8y4"), ExtResource("4_8fxms"), ExtResource("4_8fxms")]
 }
 tracks/2/type = "audio"
 tracks/2/imported = false
@@ -76,32 +47,78 @@ tracks/2/keys = {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource("5_fx8y4")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_fx8y4")
 }],
-"times": PackedFloat32Array(0.466667, 1.5)
+"times": PackedFloat32Array(0.3, 0.866667, 1.5)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_fx8y4"]
+resource_name = "reveal"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9, 1.2, 1.56667, 2),
+"transitions": PackedFloat32Array(0.170755, 0.277392, 0.17, 0.277, 0.17, 0.277, 0.17),
+"update": 0,
+"values": [Vector2(273, 804), Vector2(273, 844), Vector2(273, 804), Vector2(273, 844), Vector2(273, 804), Vector2(273, 844), Vector2(273, 804)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:texture")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9, 1.53333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_bw2j2"), ExtResource("3_fx8y4"), ExtResource("4_8fxms"), ExtResource("4_8fxms")]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_fx8y4")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_fx8y4")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_fx8y4")
+}],
+"times": PackedFloat32Array(0.3, 0.866667, 1.5)
 }
 tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e7gxy"]
 _data = {
 &"RESET": SubResource("Animation_yk5nw"),
-&"reveal_move": SubResource("Animation_u7ihl")
+&"reveal": SubResource("Animation_fx8y4")
 }
-
-[sub_resource type="GDScript" id="GDScript_fx8y4"]
-resource_name = "reveal_hand"
-script/source = "extends AudioStreamPlayer
-
-func play_sound() -> void:
-	self.play()
-	
-"
 
 [node name="Hand" type="Node2D"]
 script = ExtResource("1_8fxms")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(273, 804)
-texture = ExtResource("1_vchyo")
+texture = ExtResource("2_bw2j2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -110,4 +127,3 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 volume_db = -7.518
-script = SubResource("GDScript_fx8y4")

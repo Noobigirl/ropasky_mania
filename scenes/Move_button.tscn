@@ -13,6 +13,7 @@ func set_move(mov) -> void:
 
 func move_feedback() -> void:
 	print(\"you played: \"+ move) # debugging
+	GameHandling.move_played_by_p1 = move # saving the move played 
 
 func disable_button() -> void:
 	disabled = true
