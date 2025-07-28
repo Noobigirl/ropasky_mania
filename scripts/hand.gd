@@ -1,5 +1,4 @@
 extends Node2D
-
 @export var move_sprite: Resource
 @export var hand_ID: int # differenciating player from bot
 var hand_animation: Animation
@@ -12,7 +11,7 @@ func _ready() -> void:
 
 func reveal_move() -> void:
 	# we only change the final texture if a move is played
-	if hand_ID == 0: #player ID is 0
+	if hand_ID == 0: # player ID is 0
 		if GameHandling.move_played_by_p1: # else rock is played by default
 			# loding the  texture that macthes the move played
 			move_sprite = load(GameHandling.move_textures[GameHandling.move_played_by_p1])
