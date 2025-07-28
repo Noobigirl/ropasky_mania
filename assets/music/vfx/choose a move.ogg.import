@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b845amc88bgh0"
+path="res://.godot/imported/choose a move.ogg-c60fa4e0d63f0067b8fc346efdc7b267.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/music/vfx/choose a move.ogg"
+dest_files=["res://.godot/imported/choose a move.ogg-c60fa4e0d63f0067b8fc346efdc7b267.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
