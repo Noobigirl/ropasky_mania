@@ -14,6 +14,7 @@ offset_top = 1.0
 offset_right = 541.0
 offset_bottom = 958.0
 texture = ExtResource("1_0rdsr")
+metadata/_edit_use_anchors_ = true
 
 [node name="move_set" parent="." instance=ExtResource("2_d2op2")]
 
@@ -28,13 +29,14 @@ offset_bottom = 5.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="Hand" parent="." instance=ExtResource("1_72e8q")]
+[node name="player" parent="." instance=ExtResource("1_72e8q")]
 position = Vector2(-8, -35)
 metadata/_edit_lock_ = true
 
-[node name="Hand2" parent="." instance=ExtResource("1_72e8q")]
+[node name="bot" parent="." instance=ExtResource("1_72e8q")]
 position = Vector2(563, 987)
 rotation = 3.14159
+hand_ID = 1
 metadata/_edit_lock_ = true
 
 [node name="Control2" parent="." instance=ExtResource("5_ipu61")]
