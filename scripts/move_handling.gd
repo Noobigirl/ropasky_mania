@@ -9,3 +9,21 @@ var available_moves = [
 	"paper",
 	"scissors",
 ]
+
+#Added
+#Initial move list: Rock, Paper, Scissors, Fire, Water, Sword, Shield
+#
+#Introduced special move: Corruption (3-use, always ties)
+#
+#Changed
+#Balanced move logic to reflect realistic outcomes (e.g. water rusts sword, fire melts scissors)
+#
+#Shield now logically beats water and rock, loses to sharp/hot elements
+#
+#Fixed
+#Removed illogical matchups (e.g. sword losing to rock or tying with paper)
+#
+#Notes
+#Reworked the ruleset for intuitive strategy and consistent thematic logic
+#
+#Planning to add UI mockup and single-player mode in next version

@@ -28,3 +28,8 @@ offset_bottom = 6.0
 grow_vertical = 1
 
 [node name="Hand" parent="." instance=ExtResource("1_72e8q")]
+position = Vector2(-8, -35)
+
+[node name="Hand2" parent="." instance=ExtResource("1_72e8q")]
+position = Vector2(563, 987)
+rotation = 3.14159

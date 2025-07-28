@@ -1,7 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://doofcefyx38qp"]
+[gd_scene load_steps=11 format=3 uid="uid://doofcefyx38qp"]
 
 [ext_resource type="Script" uid="uid://bt8cn06tqsdu7" path="res://scripts/hand.gd" id="1_8fxms"]
-[ext_resource type="Texture2D" uid="uid://d1vx5ktxkkwsg" path="res://blue_block.png" id="2_bw2j2"]
 [ext_resource type="Texture2D" uid="uid://bne74gnj4fgcf" path="res://green_block.png" id="3_fx8y4"]
 [ext_resource type="Texture2D" uid="uid://cntsn2fv7vjaj" path="res://red_block.png" id="4_8fxms"]
 [ext_resource type="AudioStream" uid="uid://boph3f44lkaer" path="res://assets/music/vfx/swoosh-sound-effect-for-fight-scenes-or-transitions-2-149890.ogg" id="5_fx8y4"]
@@ -33,7 +32,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.3, 0.9, 1.53333),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("2_bw2j2"), ExtResource("3_fx8y4"), ExtResource("4_8fxms"), ExtResource("4_8fxms")]
+"values": [ExtResource("6_yk5nw"), ExtResource("3_fx8y4"), ExtResource("4_8fxms"), ExtResource("4_8fxms")]
 }
 tracks/2/type = "audio"
 tracks/2/imported = false
@@ -122,7 +121,7 @@ script = ExtResource("1_8fxms")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(273, 804)
 scale = Vector2(0.65, 0.65)
-texture = ExtResource("2_bw2j2")
+texture = ExtResource("6_yk5nw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
