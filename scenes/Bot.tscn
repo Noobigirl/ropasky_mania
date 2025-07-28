@@ -7,4 +7,4 @@
 script = ExtResource("2_mqnen")
 
 [node name="Sprite2D" parent="." index="0"]
-flip_v = true
+rotation = 3.14159

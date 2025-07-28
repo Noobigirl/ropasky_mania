@@ -59,6 +59,7 @@ tracks/2/keys = {
 tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_fx8y4"]
+resource_local_to_scene = true
 resource_name = "reveal"
 length = 2.0
 tracks/0/type = "value"

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpq8eeutajbpd"]
+[gd_scene load_steps=7 format=3 uid="uid://bpq8eeutajbpd"]
 
 [ext_resource type="Texture2D" uid="uid://bvqqne16gcxre" path="res://assets/sprites/main_bg.png" id="1_0rdsr"]
 [ext_resource type="PackedScene" uid="uid://doofcefyx38qp" path="res://scenes/Hand.tscn" id="1_72e8q"]
 [ext_resource type="PackedScene" uid="uid://du3p3gkii1rg2" path="res://scenes/Move_set.tscn" id="2_d2op2"]
 [ext_resource type="PackedScene" uid="uid://dd5a06gof085l" path="res://scenes/timer.tscn" id="3_d2op2"]
 [ext_resource type="PackedScene" uid="uid://nu0uwwafwfcj" path="res://scenes/warning.tscn" id="5_ipu61"]
+[ext_resource type="PackedScene" uid="uid://c33338n6wtuiy" path="res://scenes/Bot.tscn" id="5_ygxny"]
 
 [node name="main_game" type="Node2D"]
 
@@ -29,18 +30,14 @@ offset_bottom = 5.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="player" parent="." instance=ExtResource("1_72e8q")]
-position = Vector2(-8, -35)
-metadata/_edit_lock_ = true
-
-[node name="bot" parent="." instance=ExtResource("1_72e8q")]
-position = Vector2(563, 987)
-rotation = 3.14159
-hand_ID = 1
-metadata/_edit_lock_ = true
-
 [node name="Control2" parent="." instance=ExtResource("5_ipu61")]
 offset_left = 269.0
 offset_top = 472.0
 offset_right = 269.0
 offset_bottom = 472.0
+
+[node name="Bot" parent="." instance=ExtResource("5_ygxny")]
+position = Vector2(-7, -573)
+
+[node name="player" parent="." instance=ExtResource("1_72e8q")]
+position = Vector2(-1, -66)
