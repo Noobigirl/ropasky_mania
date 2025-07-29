@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://blarq40j63e4r"]
+
+[ext_resource type="Texture2D" uid="uid://bvqqne16gcxre" path="res://assets/sprites/main_bg.png" id="1_lp02v"]
+[ext_resource type="PackedScene" uid="uid://dd5a06gof085l" path="res://scenes/timer.tscn" id="2_5wmd6"]
+[ext_resource type="PackedScene" uid="uid://nu0uwwafwfcj" path="res://scenes/warning.tscn" id="3_ugq75"]
+[ext_resource type="PackedScene" uid="uid://du3p3gkii1rg2" path="res://scenes/Move_set.tscn" id="4_382gx"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 540.0
+offset_bottom = 960.0
+texture = ExtResource("1_lp02v")
+metadata/_edit_lock_ = true
+
+[node name="Timer" parent="." instance=ExtResource("2_5wmd6")]
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 476.0
+offset_top = 10.0
+offset_right = 476.0
+offset_bottom = 10.0
+grow_vertical = 1
+
+[node name="WarningText" parent="." instance=ExtResource("3_ugq75")]
+offset_left = 273.0
+offset_top = 470.0
+offset_right = 273.0
+offset_bottom = 470.0
+
+[node name="move_set" parent="." instance=ExtResource("4_382gx")]
