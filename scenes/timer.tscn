@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dd5a06gof085l"]
 
-[ext_resource type="Script" uid="uid://ft2gq52y0bg0" path="res://timer.gd" id="1_srplv"]
+[ext_resource type="Script" uid="uid://ft2gq52y0bg0" path="res://scripts/timer.gd" id="1_srplv"]
 [ext_resource type="AudioStream" uid="uid://bu66moehjentg" path="res://assets/music/vfx/clock-ticking-down-376897.mp3" id="2_5lxq6"]
 
 [node name="Control" type="Control"]
