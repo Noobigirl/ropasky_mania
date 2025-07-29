@@ -1,16 +1,16 @@
+class_name Hand
 extends Node2D
 
 #@export var hand_ID: int # differenciating player from bot
-var hand_animation: Animation
-
+#var hand_animation: Animation
 
 func _ready() -> void:
 	MoveHandling.play_animation.connect(reveal_move)
-	MoveHandling.play_animation.connect(_hand_positon)
-	hand_animation = $AnimationPlayer.get_animation("reveal") # fething the "reveal" animation infos
+	MoveHandling.play_animation.connect(hand_positon)
+	#hand_animation = $AnimationPlayer.get_animation("reveal") # fething the "reveal" animation infos
 
-# --- makeing the animation independent of the current position
-func _hand_positon()-> void:
+# --- making the animation independent of the current position
+func hand_positon()-> void:
 	#var initial_position = position
 	#var finial_position = Vector2(initial_position.x, initial_position.y + 50) # moving 50p down
 	#for i in range(7):

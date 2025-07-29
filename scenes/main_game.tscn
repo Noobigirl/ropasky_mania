@@ -1,13 +1,17 @@
-[gd_scene load_steps=7 format=3 uid="uid://bpq8eeutajbpd"]
+[gd_scene load_steps=8 format=3 uid="uid://bpq8eeutajbpd"]
 
 [ext_resource type="Texture2D" uid="uid://bvqqne16gcxre" path="res://assets/sprites/main_bg.png" id="1_0rdsr"]
-[ext_resource type="PackedScene" uid="uid://doofcefyx38qp" path="res://scenes/Hand.tscn" id="1_72e8q"]
+[ext_resource type="Script" uid="uid://dtdlt84a0lw4w" path="res://scenes/main_game.gd" id="1_wi4c7"]
 [ext_resource type="PackedScene" uid="uid://du3p3gkii1rg2" path="res://scenes/Move_set.tscn" id="2_d2op2"]
 [ext_resource type="PackedScene" uid="uid://dd5a06gof085l" path="res://scenes/timer.tscn" id="3_d2op2"]
 [ext_resource type="PackedScene" uid="uid://nu0uwwafwfcj" path="res://scenes/warning.tscn" id="5_ipu61"]
-[ext_resource type="PackedScene" uid="uid://c33338n6wtuiy" path="res://scenes/Bot.tscn" id="5_ygxny"]
+[ext_resource type="PackedScene" uid="uid://brj0b1yndafyy" path="res://scenes/Player_hand.tscn" id="6_wi4c7"]
+[ext_resource type="PackedScene" uid="uid://bruymdp4rd7cy" path="res://scenes/Bot_hand.tscn" id="7_70vka"]
 
 [node name="main_game" type="Node2D"]
+script = ExtResource("1_wi4c7")
+player = ExtResource("6_wi4c7")
+bot = ExtResource("7_70vka")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 texture_filter = 1
@@ -16,6 +20,7 @@ offset_right = 541.0
 offset_bottom = 958.0
 texture = ExtResource("1_0rdsr")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
 
 [node name="move_set" parent="." instance=ExtResource("2_d2op2")]
 
@@ -36,8 +41,8 @@ offset_top = 472.0
 offset_right = 269.0
 offset_bottom = 472.0
 
-[node name="Bot" parent="." instance=ExtResource("5_ygxny")]
-position = Vector2(-7, -573)
+[node name="player position" type="Marker2D" parent="."]
+position = Vector2(259, 807)
 
-[node name="player" parent="." instance=ExtResource("1_72e8q")]
-position = Vector2(-1, -66)
+[node name="Bot position" type="Marker2D" parent="."]
+position = Vector2(276, 148)
