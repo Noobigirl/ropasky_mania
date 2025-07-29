@@ -19,6 +19,53 @@ offset_top = 1.0
 offset_right = 541.0
 offset_bottom = 958.0
 texture = ExtResource("1_0rdsr")
+<<<<<<< HEAD
+metadata/_edit_use_anchors_ = true
+metadata/_edit_lock_ = true
+=======
+>>>>>>> parent of a0a014f (Trying to make basic bot functionalities work)
+
+[node name="move_set" parent="." instance=ExtResource("2_d2op2")]
+
+[node name="Control" parent="." instance=ExtResource("3_d2op2")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 481.0
+offset_top = 5.0
+offset_right = 481.0
+offset_bottom = 5.0
+grow_horizontal = 1
+grow_vertical = 1
+
+<<<<<<< HEAD
+=======
+[node name="Hand" parent="." instance=ExtResource("1_72e8q")]
+position = Vector2(-8, -35)
+metadata/_edit_lock_ = true
+
+[node name="Hand2" parent="." instance=ExtResource("1_72e8q")]
+position = Vector2(563, 987)
+rotation = 3.14159
+metadata/_edit_lock_ = true
+
+>>>>>>> parent of a0a014f (Trying to make basic bot functionalities work)
+[node name="Control2" parent="." instance=ExtResource("5_ipu61")]
+offset_left = 269.0
+offset_top = 472.0
+offset_right = 269.0
+offset_bottom = 472.0
+
+[node name="player position" type="Marker2D" parent="."]
+position = Vector2(259, 807)
+
+[node name="Bot position" type="Marker2D" parent="."]
+position = Vector2(276, 148)
+texture_filter = 1
+offset_top = 1.0
+offset_right = 541.0
+offset_bottom = 958.0
+texture = ExtResource("1_0rdsr")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
