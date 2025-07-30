@@ -1,11 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://blarq40j63e4r"]
+[gd_scene load_steps=8 format=3 uid="uid://blarq40j63e4r"]
 
+[ext_resource type="Script" uid="uid://dtdlt84a0lw4w" path="res://scripts/main_game.gd" id="1_5wmd6"]
 [ext_resource type="Texture2D" uid="uid://bvqqne16gcxre" path="res://assets/sprites/main_bg.png" id="1_lp02v"]
 [ext_resource type="PackedScene" uid="uid://dd5a06gof085l" path="res://scenes/timer.tscn" id="2_5wmd6"]
+[ext_resource type="PackedScene" uid="uid://brj0b1yndafyy" path="res://scenes/Player_hand.tscn" id="2_382gx"]
+[ext_resource type="PackedScene" uid="uid://bruymdp4rd7cy" path="res://scenes/Bot_hand.tscn" id="3_dndxd"]
 [ext_resource type="PackedScene" uid="uid://nu0uwwafwfcj" path="res://scenes/warning.tscn" id="3_ugq75"]
 [ext_resource type="PackedScene" uid="uid://du3p3gkii1rg2" path="res://scenes/Move_set.tscn" id="4_382gx"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_5wmd6")
+player = ExtResource("2_382gx")
+bot = ExtResource("3_dndxd")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 540.0
@@ -29,3 +35,9 @@ offset_right = 273.0
 offset_bottom = 470.0
 
 [node name="move_set" parent="." instance=ExtResource("4_382gx")]
+
+[node name="PlayerPosition" type="Marker2D" parent="."]
+position = Vector2(273, 730)
+
+[node name="BotPosition" type="Marker2D" parent="."]
+position = Vector2(273, 220)

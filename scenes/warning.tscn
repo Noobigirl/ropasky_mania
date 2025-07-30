@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://nu0uwwafwfcj"]
 
-[ext_resource type="AudioStream" uid="uid://b845amc88bgh0" path="res://assets/music/vfx/choose a move.ogg" id="1_8jokm"]
+[ext_resource type="AudioStream" uid="uid://b3kbtyai246bs" path="res://assets/music/vfx/c_a_move.wav" id="1_8jokm"]
 
 [sub_resource type="GDScript" id="GDScript_8jokm"]
 resource_name = "warning"
