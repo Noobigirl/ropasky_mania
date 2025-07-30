@@ -3,6 +3,7 @@ extends Hand
 var hand_animation: Animation
 var move_sprite: Resource
 var sprite_position: Vector2
+
 func _ready() -> void:
 	super._ready()
 	hand_animation = $AnimationPlayer.get_animation("reveal") # fething the "reveal" animation infos

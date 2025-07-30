@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://blarq40j63e4r"]
+[gd_scene load_steps=9 format=3 uid="uid://blarq40j63e4r"]
 
 [ext_resource type="Script" uid="uid://dtdlt84a0lw4w" path="res://scripts/main_game.gd" id="1_5wmd6"]
 [ext_resource type="Texture2D" uid="uid://bvqqne16gcxre" path="res://assets/sprites/main_bg.png" id="1_lp02v"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bruymdp4rd7cy" path="res://scenes/Bot_hand.tscn" id="3_dndxd"]
 [ext_resource type="PackedScene" uid="uid://nu0uwwafwfcj" path="res://scenes/warning.tscn" id="3_ugq75"]
 [ext_resource type="PackedScene" uid="uid://du3p3gkii1rg2" path="res://scenes/Move_set.tscn" id="4_382gx"]
+[ext_resource type="PackedScene" uid="uid://b5h0483jboje5" path="res://scenes/Games_left.tscn" id="8_dndxd"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_5wmd6")
@@ -27,17 +28,28 @@ offset_top = 10.0
 offset_right = 476.0
 offset_bottom = 10.0
 grow_vertical = 1
+metadata/_edit_lock_ = true
 
 [node name="WarningText" parent="." instance=ExtResource("3_ugq75")]
 offset_left = 273.0
 offset_top = 470.0
 offset_right = 273.0
 offset_bottom = 470.0
+metadata/_edit_lock_ = true
 
 [node name="move_set" parent="." instance=ExtResource("4_382gx")]
+metadata/_edit_lock_ = true
 
 [node name="PlayerPosition" type="Marker2D" parent="."]
 position = Vector2(273, 730)
+metadata/_edit_lock_ = true
 
 [node name="BotPosition" type="Marker2D" parent="."]
 position = Vector2(273, 220)
+metadata/_edit_lock_ = true
+
+[node name="Control" parent="." instance=ExtResource("8_dndxd")]
+offset_left = 35.0
+offset_top = 505.0
+offset_right = 35.0
+offset_bottom = 505.0

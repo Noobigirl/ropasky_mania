@@ -26,8 +26,8 @@ func determine_winner() -> void:
 	
 	# --- determining the winner of the game
 	if move_played_by_bot in move_p1["beat"]:
-		print("player1") # printing the winner's name for now
+		print("player1 wins") # printing the winner's name for now
 	elif move_played_by_bot in move_p1["lose"]:
-		print("bot")
+		print("bot wins")
 	else:
 		print("tie")

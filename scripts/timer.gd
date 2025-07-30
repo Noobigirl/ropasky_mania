@@ -13,6 +13,7 @@ func _ready() -> void:
 func start_timer() -> void:
 	timer.start()
 	$AudioStreamPlayer.play()
+	
 func update_text() -> void:
 	label.text = str(ceili(timer.time_left))
 	# ceili is used to round the time left to the to the nearest int (upwards)
@@ -25,4 +26,5 @@ func _on_timer_timeout() -> void:
 	MoveHandling.stop_playing.emit() # preventing the player to choose another move when the timer is over
 	MoveHandling.play_animation.emit() # playing the reveal animation after the timer
 	set_deferred("label.visible", false)
+	GameHandling.determine_winner() # determing the winner
 	#label.visible = false

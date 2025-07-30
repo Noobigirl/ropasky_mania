@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5h0483jboje5"]
+
+[ext_resource type="PackedScene" uid="uid://deqe3vow6wa0n" path="res://scenes/Game_score.tscn" id="1_e62nw"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(70, 30)
+layout_mode = 1
+offset_right = 60.0
+offset_bottom = 20.0
+theme_override_constants/separation = 4
+
+[node name="Sprite2D" parent="HBoxContainer" instance=ExtResource("1_e62nw")]
+layout_mode = 2
+expand_mode = 2
+
+[node name="Sprite2D2" parent="HBoxContainer" instance=ExtResource("1_e62nw")]
+layout_mode = 2
+expand_mode = 2
+
+[node name="Sprite2D3" parent="HBoxContainer" instance=ExtResource("1_e62nw")]
+layout_mode = 2
+expand_mode = 2

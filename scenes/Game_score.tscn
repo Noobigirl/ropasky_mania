@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://deqe3vow6wa0n"]
+
+[ext_resource type="Texture2D" uid="uid://duf13j2llkdj5" path="res://assets/sprites/games_left/empty.png" id="1_to5va"]
+
+[node name="Sprite2D" type="TextureRect"]
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_to5va")
