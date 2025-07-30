@@ -129,3 +129,20 @@ This mode removes Corruption for pure circular dominance and a highly strategic 
 ### Notes
 The game is starting to look like something. Next time I'll be working 
 on the UI (especially the hand) to give it more life. I also need to brainstorm the bot
+
+## [0.1.0] - 2025-07-26
+[progress image](ropasky_mania_devlog1.gif)
+
+## Added
+- Bot's hand
+- wrote some part of bot logic
+
+## Fixed
+I rand into a lot of issue when I added the bot's hand:
+	- It was replicating the move of the player
+	- position issues
+I completely deleted the main game scene and started from scratch
+
+## Note
+I know that I should've beed working on the UI, but I don't think it is urgent right now. 
+I will write the code for the bot behaviour instead 
