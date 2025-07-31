@@ -24,6 +24,7 @@ func change_score(game_numb, result) -> void:
 		to_change.texture = load(\"res://assets/sprites/games_left/lost.png\")
 	else:
 		to_change.texture = load(\"res://assets/sprites/games_left/tie.png\")
+	GameHandling.restart.emit() # playing next turn
 
 func add_indicator() -> void:
 	# adding more score indicator as needed

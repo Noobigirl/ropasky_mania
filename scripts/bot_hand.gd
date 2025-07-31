@@ -17,3 +17,6 @@ func reveal_move() ->void:
 	
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	GameHandling.score_changed.emit() # updating the warning text when the animation is over
+	
+func reset_hand() -> void:
+	$Sprite2D.texture = GameHandling.move_textures["paper"]

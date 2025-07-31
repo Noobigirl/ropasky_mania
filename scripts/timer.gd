@@ -8,6 +8,7 @@ func _ready() -> void:
 	timer = $Timer
 	label = $Label
 	GameHandling.start_game.connect(start_timer)
+	GameHandling.restart.connect(start_timer)
 
 
 func start_timer() -> void:

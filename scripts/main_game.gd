@@ -14,7 +14,7 @@ func _ready() -> void:
 	player_hand.sprite_position = $PlayerPosition.position
 	add_child(player_hand)
 	add_child(bot_hand)
-	MoveHandling.play_animation.connect(disapear)
+	MoveHandling.remove_text.connect(disapear)
 	GameHandling.update_text.connect(update_warnig_text)
 	
 
@@ -25,6 +25,7 @@ func update_warnig_text(text, audio) -> void:
 	warning_text.change_text_audio(text, audio) # changing the text and the audio
 	add_child(warning_text)
 	warning_text.play_audio() # playing the new audio
+	#GameHandling.restart.emit()
 	
 
 func reappear() ->void:

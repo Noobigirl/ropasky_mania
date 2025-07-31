@@ -13,7 +13,10 @@ var sound_effects: Array[AudioStream] = [
 	load(\"res://assets/music/vfx/you_lose.wav\"),
 ]
 
+var first_game: bool
+
 func _ready() -> void:
+	first_game = true
 	$AudioStreamPlayer.play()
 	$AnimationPlayer.play(\"appear\") # playing animation and sound when starting
 	
@@ -25,7 +28,12 @@ func play_audio() -> void:
 	$AudioStreamPlayer.play()
 
 func _on_audio_stream_player_finished() -> void:
-	GameHandling.start_game.emit() # starting the game when the audio is over
+	if first_game:
+		GameHandling.start_game.emit() # starting the game when the audio is over
+		first_game = false 
+	if not first_game:
+		await get_tree().create_timer(1.3) # slight delay before emiting the remove signal
+		MoveHandling.remove_text.emit()
 "
 
 [sub_resource type="Animation" id="Animation_fgfcp"]

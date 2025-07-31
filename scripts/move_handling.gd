@@ -2,6 +2,7 @@ extends Node
 
 signal stop_playing
 signal play_animation
+signal remove_text
 
 # the available moves will very depending on the difficulty levels
 var available_moves = [
