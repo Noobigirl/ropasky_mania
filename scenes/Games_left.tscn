@@ -15,7 +15,7 @@ func _ready() -> void:
 
 # receiving the score indext and string -> win, lose or tie
 func change_score(game_numb, result) -> void: 
-	var score_reveal_timer = get_tree().create_timer(2.5)
+	var score_reveal_timer = get_tree().create_timer(3.2) # updating the score after 3.2
 	var to_change = games_left[game_numb]
 	await score_reveal_timer.timeout
 	if result == \"won\":
@@ -24,6 +24,10 @@ func change_score(game_numb, result) -> void:
 		to_change.texture = load(\"res://assets/sprites/games_left/lost.png\")
 	else:
 		to_change.texture = load(\"res://assets/sprites/games_left/tie.png\")
+
+func add_indicator() -> void:
+	# adding more score indicator as needed
+	games_left.append(score.instantiate())
 "
 
 [node name="Control" type="Control"]

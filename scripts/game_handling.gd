@@ -2,12 +2,14 @@ extends Node
 
 signal start_game
 signal restart
+signal score_changed
 signal game_status(game_index, result) # signal sent when the winner of a game is deterined
 signal update_text(text, audio)
 
 var move_played_by_p1: String
 var move_played_by_bot: String 
 var turn_number : int = 0 # number of turns
+var warning_update: Array
 
 var move_textures: Dictionary = {
 	"rock": "res://assets/sprites/hands/rock.png",
@@ -21,6 +23,9 @@ var move_textures: Dictionary = {
 	
 }
 
+func _ready() -> void:
+	score_changed.connect(update_score)
+
 func determine_winner() -> void:
 	# --- getting the indexes of each move in the array
 	if move_played_by_p1 == null:
@@ -33,20 +38,23 @@ func determine_winner() -> void:
 	if move_played_by_bot in move_p1["beat"]:
 		print("player1 wins") # printing the winner's name for now
 		game_status.emit(turn_number, "won")
-		update_text.emit("[shake]You win[/shake]", " ")
+		warning_update = ["[shake]You win[/shake]", 2]
 		
 	elif move_played_by_bot in move_p1["lose"]:
 		print("bot wins")
 		game_status.emit(turn_number, "lost")
-		update_text.emit("[shake]You lose[/shake]", " ")
+		warning_update = ["[shake]You lose[/shake]", 3]
 		
 	else:
 		print("tie")
 		game_status.emit(turn_number, "tie")
-		update_text.emit("[shake]Tie[/shake]", " ")
+		warning_update = ["[shake]Tie[/shake]", 1]
 		
 	turn_number += 1
-	#restart.emit()
+
+func update_score() -> void:
+	# passing through the new text and audiofile index
+	update_text.emit(warning_update[0], warning_update[1])
 	
 func replay() -> void:
-	pass
+	print(0)

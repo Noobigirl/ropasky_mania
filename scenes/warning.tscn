@@ -6,13 +6,23 @@
 resource_name = "warning"
 script/source = "extends Control
 
+var sound_effects: Array[AudioStream] = [
+	load(\"res://assets/music/vfx/c_a_move.wav\"),
+	load(\"res://assets/music/vfx/tie.wav\"),
+	load(\"res://assets/music/vfx/you_win.wav\"),
+	load(\"res://assets/music/vfx/you_lose.wav\"),
+]
 
 func _ready() -> void:
 	$AudioStreamPlayer.play()
 	$AnimationPlayer.play(\"appear\") # playing animation and sound when starting
 	
-func change_text(text) -> void:
+func change_text_audio(text, audio) -> void:
 	$RichTextLabel.text = text
+	$AudioStreamPlayer.stream = sound_effects[audio]
+
+func play_audio() -> void:
+	$AudioStreamPlayer.play()
 
 func _on_audio_stream_player_finished() -> void:
 	GameHandling.start_game.emit() # starting the game when the audio is over

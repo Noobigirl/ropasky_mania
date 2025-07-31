@@ -4,11 +4,12 @@ extends Node2D
 @export var bot: PackedScene
 var warning_text
 
-
 func _ready() -> void:
 	warning_text = $WarningText
 	var player_hand = player.instantiate()
 	var bot_hand = bot.instantiate()
+	# --- Very important
+	# I am setting the positions of the sprites to avoid "inconsistencies"
 	bot_hand.sprite_position = $BotPosition.position
 	player_hand.sprite_position = $PlayerPosition.position
 	add_child(player_hand)
@@ -21,8 +22,9 @@ func disapear() ->void:
 	self.remove_child(warning_text) # removing the text when the animation is playing
 
 func update_warnig_text(text, audio) -> void:
-	warning_text.change_text(text)
+	warning_text.change_text_audio(text, audio) # changing the text and the audio
 	add_child(warning_text)
+	warning_text.play_audio() # playing the new audio
 	
 
 func reappear() ->void:

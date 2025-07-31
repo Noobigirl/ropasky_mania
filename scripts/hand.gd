@@ -8,5 +8,4 @@ func _ready() -> void:
 
 func reveal_move() -> void:
 	pass # inherited scene  overwrite that
-
 	

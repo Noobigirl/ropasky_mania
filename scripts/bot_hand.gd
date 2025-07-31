@@ -15,3 +15,5 @@ func reveal_move() ->void:
 	hand_animation.track_set_key_value(1, 3, move_sprite)
 	$AnimationPlayer.play("reveal")
 	
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	GameHandling.score_changed.emit() # updating the warning text when the animation is over
