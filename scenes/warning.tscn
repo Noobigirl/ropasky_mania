@@ -9,11 +9,7 @@ script/source = "extends Control
 
 func _ready() -> void:
 	$AudioStreamPlayer.play()
-	$AnimationPlayer.play(\"appear\") # playing animation an sound when starting
-	MoveHandling.play_animation.connect(disapear)
-
-func disapear() ->void:
-	queue_free() # removing the text when the animation is playing
+	$AnimationPlayer.play(\"appear\") # playing animation and sound when starting
 
 
 func _on_audio_stream_player_finished() -> void:

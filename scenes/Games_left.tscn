@@ -1,6 +1,30 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5h0483jboje5"]
+[gd_scene load_steps=3 format=3 uid="uid://b5h0483jboje5"]
 
 [ext_resource type="PackedScene" uid="uid://deqe3vow6wa0n" path="res://scenes/Game_score.tscn" id="1_e62nw"]
+
+[sub_resource type="GDScript" id="GDScript_e62nw"]
+resource_name = "games_left"
+script/source = "extends Control
+
+@export var score: PackedScene
+var games_left
+
+func _ready() -> void:
+	games_left = $HBoxContainer.get_children() # starting off with 3 score indicators
+	GameHandling.game_status.connect(change_score)
+
+# receiving the score indext and string -> win, lose or tie
+func change_score(game_numb, result) -> void: 
+	var score_reveal_timer = get_tree().create_timer(2.5)
+	var to_change = games_left[game_numb]
+	await score_reveal_timer.timeout
+	if result == \"win\":
+		to_change.texture = load(\"res://assets/sprites/games_left/won.png\")
+	elif result == \"lose\":
+		to_change.texture = load(\"res://assets/sprites/games_left/lost.png\")
+	else:
+		to_change.texture = load(\"res://assets/sprites/games_left/tie.png\")
+"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -9,6 +33,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = SubResource("GDScript_e62nw")
+score = ExtResource("1_e62nw")
 metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

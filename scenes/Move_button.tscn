@@ -10,6 +10,7 @@ func set_move(mov) -> void:
 	move = mov
 	text = mov # just for now:#
 	MoveHandling.stop_playing.connect(disable_button)
+	GameHandling.restart.connect(renable_button)
 
 func move_feedback() -> void:
 	print(\"you played: \"+ move) # debugging
@@ -17,7 +18,8 @@ func move_feedback() -> void:
 
 func disable_button() -> void:
 	disabled = true
-	
+func renable_button() -> void:
+	disabled= false
 "
 
 [node name="Button" type="Button"]
