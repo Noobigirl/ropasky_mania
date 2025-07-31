@@ -32,18 +32,18 @@ func determine_winner() -> void:
 	# --- determining the winner of the game
 	if move_played_by_bot in move_p1["beat"]:
 		print("player1 wins") # printing the winner's name for now
-		game_status.emit(turn_number, "beat")
-		update_text.emit("You win", " ")
+		game_status.emit(turn_number, "won")
+		update_text.emit("[shake]You win[/shake]", " ")
 		
 	elif move_played_by_bot in move_p1["lose"]:
 		print("bot wins")
-		game_status.emit(turn_number, "lose")
-		update_text.emit("You lose", " ")
+		game_status.emit(turn_number, "lost")
+		update_text.emit("[shake]You lose[/shake]", " ")
 		
 	else:
 		print("tie")
 		game_status.emit(turn_number, "tie")
-		update_text.emit("Tie", " ")
+		update_text.emit("[shake]Tie[/shake]", " ")
 		
 	turn_number += 1
 	#restart.emit()

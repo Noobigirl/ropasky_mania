@@ -18,9 +18,9 @@ func change_score(game_numb, result) -> void:
 	var score_reveal_timer = get_tree().create_timer(2.5)
 	var to_change = games_left[game_numb]
 	await score_reveal_timer.timeout
-	if result == \"win\":
+	if result == \"won\":
 		to_change.texture = load(\"res://assets/sprites/games_left/won.png\")
-	elif result == \"lose\":
+	elif result == \"lost\":
 		to_change.texture = load(\"res://assets/sprites/games_left/lost.png\")
 	else:
 		to_change.texture = load(\"res://assets/sprites/games_left/tie.png\")

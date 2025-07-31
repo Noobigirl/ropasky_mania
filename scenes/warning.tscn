@@ -10,7 +10,9 @@ script/source = "extends Control
 func _ready() -> void:
 	$AudioStreamPlayer.play()
 	$AnimationPlayer.play(\"appear\") # playing animation and sound when starting
-
+	
+func change_text(text) -> void:
+	$RichTextLabel.text = text
 
 func _on_audio_stream_player_finished() -> void:
 	GameHandling.start_game.emit() # starting the game when the audio is over

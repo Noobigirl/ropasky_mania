@@ -21,7 +21,9 @@ func disapear() ->void:
 	self.remove_child(warning_text) # removing the text when the animation is playing
 
 func update_warnig_text(text, audio) -> void:
-	pass
+	warning_text.change_text(text)
+	add_child(warning_text)
+	
 
 func reappear() ->void:
 	pass

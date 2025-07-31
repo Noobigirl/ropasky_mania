@@ -131,7 +131,7 @@ The game is starting to look like something. Next time I'll be working
 on the UI (especially the hand) to give it more life. I also need to brainstorm the bot
 
 ## [0.1.0] - 2025-07-26
-[progress image](ropasky_mania_devlog1.gif)
+![progress image](ropasky_mania_devlog1.gif)
 
 ## Added
 - Bot's hand
