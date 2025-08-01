@@ -8,6 +8,8 @@ script/source = "extends Control
 
 @export var score: PackedScene
 var games_left
+var score_added: int = 0
+var to_change
 
 func _ready() -> void:
 	games_left = $HBoxContainer.get_children() # starting off with 3 score indicators
@@ -16,19 +18,27 @@ func _ready() -> void:
 # receiving the score indext and string -> win, lose or tie
 func change_score(game_numb, result) -> void: 
 	var score_reveal_timer = get_tree().create_timer(3.2) # updating the score after 3.2
-	var to_change = games_left[game_numb]
+	to_change = games_left[game_numb]
 	await score_reveal_timer.timeout
+	score_added += 1
+	add_indicator()
 	if result == \"won\":
 		to_change.texture = load(\"res://assets/sprites/games_left/won.png\")
 	elif result == \"lost\":
 		to_change.texture = load(\"res://assets/sprites/games_left/lost.png\")
 	else:
 		to_change.texture = load(\"res://assets/sprites/games_left/tie.png\")
+	
 	GameHandling.restart.emit() # playing next turn
 
 func add_indicator() -> void:
-	# adding more score indicator as needed
-	games_left.append(score.instantiate())
+	if score_added >= 3:
+		# adding more score indicator as needed
+		$HBoxContainer.add_child(score.instantiate())
+		
+		# updating the child list ( for some reason it is not doe automatically)
+		games_left = $HBoxContainer.get_children()
+		print(games_left)
 "
 
 [node name="Control" type="Control"]
@@ -45,18 +55,15 @@ metadata/_edit_lock_ = true
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 custom_minimum_size = Vector2(70, 30)
 layout_mode = 1
-offset_right = 60.0
-offset_bottom = 20.0
+offset_right = 259.0
+offset_bottom = 30.0
 theme_override_constants/separation = 4
 
 [node name="Sprite2D" parent="HBoxContainer" instance=ExtResource("1_e62nw")]
 layout_mode = 2
-expand_mode = 2
 
 [node name="Sprite2D2" parent="HBoxContainer" instance=ExtResource("1_e62nw")]
 layout_mode = 2
-expand_mode = 2
 
 [node name="Sprite2D3" parent="HBoxContainer" instance=ExtResource("1_e62nw")]
 layout_mode = 2
-expand_mode = 2

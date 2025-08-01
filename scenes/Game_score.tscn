@@ -5,3 +5,4 @@
 [node name="Sprite2D" type="TextureRect"]
 scale = Vector2(1.6, 1.6)
 texture = ExtResource("1_to5va")
+expand_mode = 2

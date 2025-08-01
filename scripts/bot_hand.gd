@@ -9,6 +9,7 @@ func _ready() -> void:
 	hand_animation = $AnimationPlayer.get_animation("reveal") # fething the "reveal" animation infos
 	$Sprite2D.position = sprite_position
 	BotLogic._easy_mode()
+	GameHandling.restart.connect(reset_hand)
 
 func reveal_move() ->void:
 	move_sprite = load(GameHandling.move_textures[GameHandling.move_played_by_bot])
@@ -19,4 +20,4 @@ func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	GameHandling.score_changed.emit() # updating the warning text when the animation is over
 	
 func reset_hand() -> void:
-	$Sprite2D.texture = GameHandling.move_textures["paper"]
+	$Sprite2D.texture = load(GameHandling.move_textures["paper"])
