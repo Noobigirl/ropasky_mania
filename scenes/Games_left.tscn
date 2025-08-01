@@ -38,7 +38,7 @@ func add_indicator() -> void:
 		
 		# updating the child list ( for some reason it is not doe automatically)
 		games_left = $HBoxContainer.get_children()
-		print(games_left)
+		# print(games_left)
 "
 
 [node name="Control" type="Control"]
