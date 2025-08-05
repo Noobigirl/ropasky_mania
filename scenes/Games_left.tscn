@@ -7,6 +7,9 @@ resource_name = "games_left"
 script/source = "extends Control
 
 @export var score: PackedScene
+@export var game_over: String
+@export var animation: String
+
 var games_left
 var score_added: int = 0
 var to_change
@@ -32,6 +35,7 @@ func change_score(game_numb, result) -> void:
 		to_change.texture = load(\"res://assets/sprites/games_left/lost.png\")
 	else:
 		to_change.texture = load(\"res://assets/sprites/games_left/tie.png\")
+
 	add_indicator()
 	GameHandling.restart.emit() # playing next turn
 
@@ -39,21 +43,22 @@ func end_game() -> void:
 	# -- debugging
 	print(\"Checking win/loss condition\")
 	print(\"Turn number is: \", GameHandling.turn_number)
-	
+	print()
 	# --- comapring the ratio of wins to losses
 	var win_ratio = GameHandling.end_game[\"won\"] / score_number
 	var loss_ratio = GameHandling.end_game[\"lost\"] / score_number
 	print(\"win_ratio:\", win_ratio, \" loss_ratio:\", loss_ratio)
-		
-	if GameHandling.turn_number >= 1:
+			
+	if GameHandling.turn_number > 1:
 		# -- debugging
 		print(\"won:\", GameHandling.end_game[\"won\"], \" lost:\", GameHandling.end_game[\"lost\"], \" score_number:\", score_number)
 		
 		# There must be a winner and a loser
 		if win_ratio > loss_ratio:
 			print(\"victory\")
-		elif loss_ratio < win_ratio:
+		elif loss_ratio > win_ratio:
 			print(\"Game Over\")
+			SceneManager.change_scene(game_over, self)
 	
 func add_indicator() -> void:
 	if score_added >= 3:
@@ -65,7 +70,6 @@ func add_indicator() -> void:
 		score_number = $HBoxContainer.get_child_count()
 		
 	end_game()
-		
 "
 
 [node name="Control" type="Control"]
@@ -77,6 +81,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = SubResource("GDScript_e62nw")
 score = ExtResource("1_e62nw")
+game_over = "res://scenes/Game_end.tscn"
+animation = "swipe_in"
 metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

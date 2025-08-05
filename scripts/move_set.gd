@@ -10,8 +10,3 @@ func create_button() -> void:
 
 func _ready() -> void:
 	create_button()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
