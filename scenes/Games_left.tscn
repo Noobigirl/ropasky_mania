@@ -62,7 +62,7 @@ func end_game() -> void:
 			SceneManager.change_scene(game_over, self)
 		elif loss_ratio > win_ratio:
 			print(\"Game Over\")
-			get_tree().get_node(\"Timer\").queue_free() # removing the timer from the tree
+			get_parent().get_node(\"Timer\").queue_free() # removing the timer from the tree
 			SceneManager.change_scene(game_over, self)
 	
 func add_indicator() -> void:

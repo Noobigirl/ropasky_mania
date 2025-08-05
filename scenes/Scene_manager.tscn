@@ -171,7 +171,7 @@ offset_bottom = 9.5999e+07
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
-color = Color(0.731882, 0.788176, 0.795794, 1)
+color = Color(0.63607, 0.823155, 0.889535, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

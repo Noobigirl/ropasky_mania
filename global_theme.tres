@@ -1,0 +1,51 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dpwataeii3asj"]
+
+[ext_resource type="StyleBox" uid="uid://bimej2b84sipf" path="res://base_button.tres" id="1_ofusn"]
+[ext_resource type="FontFile" uid="uid://caoiaug0fno3q" path="res://assets/Pixel Game.otf" id="2_l7yju"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ap137"]
+bg_color = Color(0.532041, 0.368877, 0.100135, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ofusn"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.867065, 0.808456, 0.457118, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l7yju"]
+bg_color = Color(0.727001, 0.509186, 0.156848, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icku4"]
+bg_color = Color(0.377905, 0.172251, 0.00434678, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.151363, 0.053846, 0.000680864, 1)
+corner_radius_top_left = 9
+corner_radius_top_right = 9
+corner_radius_bottom_right = 9
+corner_radius_bottom_left = 9
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxFlat_ap137")
+Button/styles/focus = SubResource("StyleBoxFlat_ofusn")
+Button/styles/hover = SubResource("StyleBoxFlat_l7yju")
+Button/styles/normal = ExtResource("1_ofusn")
+FlatButton/styles/normal = null
+Label/fonts/font = ExtResource("2_l7yju")
+ScrollContainer/styles/panel = SubResource("StyleBoxFlat_icku4")
