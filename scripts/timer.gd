@@ -1,12 +1,10 @@
 extends Control
 
 var timer
-var label
 var clock
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	timer = $Timer
-	label = $Label
 	clock = $TextureProgressBar
 	GameHandling.start_game.connect(start_timer)
 	GameHandling.restart.connect(start_timer)
@@ -17,7 +15,6 @@ func start_timer() -> void:
 	$AudioStreamPlayer.play()
 	
 func update_text() -> void:
-	label.text = str(ceili(timer.time_left))
 	clock.value = timer.time_left
 	
 	# ceili is used to round the time left to the to the nearest int (upwards)

@@ -16,11 +16,11 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+SceneManager="*res://scenes/Scene_manager.tscn"
 GameLogic="*res://scripts/game_logic.gd"
 MoveHandling="*res://scripts/move_handling.gd"
 GameHandling="*res://scripts/game_handling.gd"
 BotLogic="*res://scripts/bot_logic.gd"
-SceneManager="*res://scripts/scene_manager.gd"
 
 [display]
 
