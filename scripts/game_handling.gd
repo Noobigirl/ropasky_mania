@@ -8,8 +8,13 @@ signal update_text(text, audio)
 
 var move_played_by_p1: String
 var move_played_by_bot: String 
-var turn_number : int = 0 # number of turns
+var turn_number : int = 0 # number of turns. 
 var warning_update: Array
+
+var end_game: Dictionary = {
+	"won": 0.0,
+	"lost": 0.0,
+}
 
 var move_textures: Dictionary = {
 	"rock": "res://assets/sprites/hands/rock.png",

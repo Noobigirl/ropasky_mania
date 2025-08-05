@@ -10,9 +10,11 @@ script/source = "extends Control
 var games_left
 var score_added: int = 0
 var to_change
+var score_number: float
 
 func _ready() -> void:
 	games_left = $HBoxContainer.get_children() # starting off with 3 score indicators
+	score_number = $HBoxContainer.get_child_count()
 	GameHandling.game_status.connect(change_score)
 
 # receiving the score indext and string -> win, lose or tie
@@ -21,16 +23,38 @@ func change_score(game_numb, result) -> void:
 	to_change = games_left[game_numb]
 	await score_reveal_timer.timeout
 	score_added += 1
-	add_indicator()
+	
 	if result == \"won\":
+		GameHandling.end_game[\"won\"] += 1
 		to_change.texture = load(\"res://assets/sprites/games_left/won.png\")
 	elif result == \"lost\":
+		GameHandling.end_game[\"lost\"] += 1
 		to_change.texture = load(\"res://assets/sprites/games_left/lost.png\")
 	else:
 		to_change.texture = load(\"res://assets/sprites/games_left/tie.png\")
-	
+	add_indicator()
 	GameHandling.restart.emit() # playing next turn
 
+func end_game() -> void:
+	# -- debugging
+	print(\"Checking win/loss condition\")
+	print(\"Turn number is: \", GameHandling.turn_number)
+	
+	# --- comapring the ratio of wins to losses
+	var win_ratio = GameHandling.end_game[\"won\"] / score_number
+	var loss_ratio = GameHandling.end_game[\"lost\"] / score_number
+	print(\"win_ratio:\", win_ratio, \" loss_ratio:\", loss_ratio)
+		
+	if GameHandling.turn_number >= 1:
+		# -- debugging
+		print(\"won:\", GameHandling.end_game[\"won\"], \" lost:\", GameHandling.end_game[\"lost\"], \" score_number:\", score_number)
+		
+		# There must be a winner and a loser
+		if win_ratio > loss_ratio:
+			print(\"victory\")
+		elif loss_ratio < win_ratio:
+			print(\"Game Over\")
+	
 func add_indicator() -> void:
 	if score_added >= 3:
 		# adding more score indicator as needed
@@ -38,7 +62,10 @@ func add_indicator() -> void:
 		
 		# updating the child list ( for some reason it is not doe automatically)
 		games_left = $HBoxContainer.get_children()
-		# print(games_left)
+		score_number = $HBoxContainer.get_child_count()
+		
+	end_game()
+		
 "
 
 [node name="Control" type="Control"]
