@@ -17,6 +17,15 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+
+func _on_replay_button_pressed() -> void:
+	SceneManager.change_scene(\"res://scenes/Main_game.tscn\", self)
+
+
+func _on_main_menu_button_pressed() -> void:
+	SceneManager.change_scene(\"res://scenes/Main_menu.tscn\", self)
+	
 "
 
 [node name="Control" type="Control"]
@@ -54,13 +63,13 @@ grow_vertical = 2
 theme_override_constants/separation = 10
 metadata/_edit_group_ = true
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="ReplayButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 48
 text = "Replay"
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
+[node name="MainMenuButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 48
@@ -80,3 +89,6 @@ theme_override_font_sizes/font_size = 96
 text = "Outcome"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[connection signal="pressed" from="HBoxContainer/ReplayButton" to="." method="_on_replay_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

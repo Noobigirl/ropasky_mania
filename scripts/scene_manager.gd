@@ -1,20 +1,24 @@
 extends CanvasLayer
 
 var transition: AnimationPlayer
-
-#func change_scene(path, from, transmit = null) -> void: # path to the new scene and scene from which we are changing it
-	#transition  = $AnimationPlayer
-	## playing the animation before changing the scene
-	#transition.play(from.animation_in)
-	#await  transition.animation_finished
-	#
-	#from.get_tree().call_deferred("change_scene_to_file", path)
-	#transition.play(from.animation_out)
+var default: Array = ["open_door", "close_door"]
+var animation_in
+var animation_out
 
 func change_scene(path, from, transmit = null) -> void:
+	
+	# checking if a particular animation should be played
+	if "animation_in" in from:
+		animation_in = from.animation_in
+		animation_out = from.animation_out
+	else:
+		animation_in = default[0]
+		animation_out = default[1]
+		
 	transition = $AnimationPlayer
-	transition.play(from.animation_in)
+	transition.play(animation_in)
 	await transition.animation_finished
+	
 	if transmit !=null: 
 		 # Manually instance the new scene
 		var new_scene = load(path).instantiate()
@@ -27,4 +31,5 @@ func change_scene(path, from, transmit = null) -> void:
 		get_tree().current_scene = new_scene
 	else: 
 		from.get_tree().call_deferred("change_scene_to_file", path)
-	transition.play(from.animation_out)
+		
+	transition.play(animation_out)
