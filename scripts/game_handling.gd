@@ -14,6 +14,7 @@ var warning_update: Array
 var end_game: Dictionary = {
 	"won": 0.0,
 	"lost": 0.0,
+	"tie": 0.0,
 }
 
 var move_textures: Dictionary = {

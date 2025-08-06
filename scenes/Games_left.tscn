@@ -49,21 +49,22 @@ func end_game() -> void:
 	# --- comapring the ratio of wins to losses
 	var win_ratio = GameHandling.end_game[\"won\"] / score_number
 	var loss_ratio = GameHandling.end_game[\"lost\"] / score_number
-	print(\"win_ratio:\", win_ratio, \" loss_ratio:\", loss_ratio)
+	var tie_ratio = GameHandling.end_game[\"tie\"]/ score_number
+	print(\"win_ratio:\", win_ratio, \" loss_ratio:\", loss_ratio, \" tie_ratio\", tie_ratio)
 			
 	if GameHandling.turn_number > 1:
 		# -- debugging
 		print(\"won:\", GameHandling.end_game[\"won\"], \" lost:\", GameHandling.end_game[\"lost\"], \" score_number:\", score_number)
 		
 		# There must be a winner and a loser
-		if win_ratio > loss_ratio:
+		if win_ratio > loss_ratio and win_ratio > tie_ratio:
 			print(\"victory\")
 			get_parent().get_node(\"Timer\").queue_free() # removing the timer from the tree
-			SceneManager.change_scene(game_over, self)
-		elif loss_ratio > win_ratio:
+			SceneManager.change_scene(game_over, self, true)
+		elif loss_ratio > win_ratio and loss_ratio > tie_ratio:
 			print(\"Game Over\")
 			get_parent().get_node(\"Timer\").queue_free() # removing the timer from the tree
-			SceneManager.change_scene(game_over, self)
+			SceneManager.change_scene(game_over, self, false)
 	
 func add_indicator() -> void:
 	if score_added >= 3:
