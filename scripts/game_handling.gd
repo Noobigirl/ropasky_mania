@@ -3,6 +3,7 @@ extends Node
 signal start_game
 signal restart
 signal score_changed
+signal bot_move_determined(player_move)
 signal game_status(game_index, result) # signal sent when the winner of a game is deterined
 signal update_text(text, audio)
 

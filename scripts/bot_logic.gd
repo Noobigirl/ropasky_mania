@@ -1,11 +1,40 @@
 extends Node
 
 var difficulty_level: String
-var move_to_play: String
+#var move_to_play: String
 
-
-func _easy_mode() -> void:
-	move_to_play = GameLogic.all_moves.pick_random() # picking a random move 
-	#debugging
+# -- helper function
+func _set_bot_move(move_to_play) -> void:
 	print(move_to_play)
 	GameHandling.move_played_by_bot = move_to_play
+
+# ----- Easy Mode bot AI
+var moves = MoveHandling.mode["easy"]
+var last_bot_move = ""
+var first_turn = true
+
+func check_first_turn() -> void:
+	first_turn = !first_turn
+	
+func easy_mode(player_move: String):
+	# - choosing a random move from rock, paper, and scissors
+	if first_turn:
+		last_bot_move = moves[randi() % moves.size()]
+		first_turn = false
+		_set_bot_move(last_bot_move)
+	else:
+		if beats(last_bot_move, player_move):
+			_set_bot_move(last_bot_move)
+		# Keep same move if it beats the player
+		else:
+			# Choose a different move from last time
+			var available_moves = moves.duplicate()
+			available_moves.erase(last_bot_move)
+			last_bot_move = available_moves[randi() % available_moves.size()]
+			_set_bot_move(last_bot_move)
+
+func beats(move_a: String, move_b: String) -> bool:
+		if (move_a == "rock" and move_b == "scissors") or (move_a == "scissors" and move_b == "paper") or (move_a == "paper" and move_b == "rock"):
+			return true
+		else: 
+			return false

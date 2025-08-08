@@ -4,6 +4,13 @@ signal stop_playing
 signal play_animation
 signal remove_text
 
+
+var mode : Dictionary = {
+	"easy" = ["rock", "paper","scissors"],
+	"medium" = [],
+	"hard" = []
+}
+
 # the available moves will very depending on the difficulty levels
 var available_moves = [
 	"rock",
@@ -11,6 +18,13 @@ var available_moves = [
 	"scissors",
 ]
 
+var medium = [ # move set available in medium mode
+	[],
+	[],
+	[],
+]
+
+var hard 
 #Added
 #Initial move list: Rock, Paper, Scissors, Fire, Water, Sword, Shield
 #
