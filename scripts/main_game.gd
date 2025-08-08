@@ -3,6 +3,7 @@ extends Node2D
 @export var player: PackedScene
 @export var bot: PackedScene
 var warning_text
+@export var difficulty_level: String
 
 func _ready() -> void:
 	warning_text = $WarningText

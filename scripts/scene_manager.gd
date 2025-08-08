@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 var transition: AnimationPlayer
-var default: Array = ["open_door", "close_door"]
+var default: Array = ["swipe_in", "swipe_out"]
 var animation_in
 var animation_out
 

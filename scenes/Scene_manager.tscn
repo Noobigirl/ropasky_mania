@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://lerwtr6a77ft"]
+[gd_scene load_steps=8 format=3 uid="uid://lerwtr6a77ft"]
 
 [ext_resource type="Script" uid="uid://g6yvyud2m553" path="res://scripts/scene_manager.gd" id="1_chs7f"]
 [ext_resource type="Shader" uid="uid://vrojndn7scha" path="res://shaders/horizontal_sweep.gdshader" id="2_3uko5"]
-[ext_resource type="Shader" uid="uid://bbw86o5h4f7xp" path="res://shaders/door_sweep.gdshader" id="2_chs7f"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xcqhj"]
-shader = ExtResource("2_chs7f")
+shader = ExtResource("2_3uko5")
 shader_parameter/progress = 1.0
-shader_parameter/reverse = false
+shader_parameter/reverse = true
+shader_parameter/number_of_tiles = Vector2(15.987, 15.689)
+shader_parameter/pixels_per_tile = Vector2(32, 32)
 
 [sub_resource type="Animation" id="Animation_yi1is"]
 length = 0.001
@@ -35,49 +36,10 @@ tracks/1/keys = {
 "update": 1,
 "values": [false]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("Control/ColorRect:material:shader")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_chs7f")]
-}
-
-[sub_resource type="Animation" id="Animation_chs7f"]
-resource_name = "open_door"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/ColorRect:material:shader_parameter/progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/ColorRect:material:shader_parameter/reverse")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_xcqhj"]
 resource_name = "swipe_in"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -85,8 +47,8 @@ tracks/0/path = NodePath("Control/ColorRect:material:shader_parameter/progress")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1.03526),
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 2.82842),
 "update": 0,
 "values": [0.0, 1.0]
 }
@@ -101,22 +63,11 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/ColorRect:material:shader")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_3uko5")]
 }
 
 [sub_resource type="Animation" id="Animation_3uko5"]
 resource_name = "swipe_out"
+length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -124,8 +75,8 @@ tracks/0/path = NodePath("Control/ColorRect:material:shader_parameter/progress")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1.03526),
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [0.0, 1.0]
 }
@@ -140,59 +91,17 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Control/ColorRect:material:shader")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_3uko5")]
-}
-
-[sub_resource type="Animation" id="Animation_tmbjh"]
-resource_name = "close_door"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Control/ColorRect:material:shader_parameter/progress")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Control/ColorRect:material:shader_parameter/reverse")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_chs7f"]
 _data = {
 &"RESET": SubResource("Animation_yi1is"),
-&"close_door": SubResource("Animation_tmbjh"),
-&"open_door": SubResource("Animation_chs7f"),
 &"swipe_in": SubResource("Animation_xcqhj"),
 &"swipe_out": SubResource("Animation_3uko5")
 }
 
 [node name="CanvasLayer" type="CanvasLayer"]
-layer = -1
+layer = 0
 script = ExtResource("1_chs7f")
 
 [node name="Control" type="Control" parent="."]

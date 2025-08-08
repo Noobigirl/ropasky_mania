@@ -20,6 +20,7 @@ func _process(delta: float) -> void:
 
 
 func _on_replay_button_pressed() -> void:
+	print(\"scene changed\")
 	SceneManager.change_scene(\"res://scenes/Main_game.tscn\", self)
 
 
