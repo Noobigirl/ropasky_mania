@@ -8,9 +8,11 @@ func _ready() -> void:
 	super._ready()
 	hand_animation = $AnimationPlayer.get_animation("reveal") # fething the "reveal" animation infos
 	$Sprite2D.position = sprite_position
+
 	GameHandling.restart.connect(reset_hand)
-	# bot move determined each time the player moves
-	GameHandling.bot_move_determined.connect(BotLogic.easy_mode)
+	# bot move determined each time the player selects a move
+	GameHandling.easy_mode_bot.connect(BotLogic.easy_mode)
+	GameHandling.medium_mode_bot.connect(BotLogic.medium_mode)
 
 func reveal_move() ->void:
 	move_sprite = load(GameHandling.move_textures[GameHandling.move_played_by_bot])

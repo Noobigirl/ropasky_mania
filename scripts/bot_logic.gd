@@ -1,9 +1,16 @@
 extends Node
 
-var difficulty_level: String
-var moves = MoveHandling.mode["easy"]
+
+var moves #= MoveHandling.mode[MoveHandling.selected_mode]
+var move_set #= moves[randi() % moves.size()]  # for medium and hard
 var last_bot_move = ""
 #var move_to_play: String
+
+func establish_moves() ->void:
+	moves = MoveHandling.mode[MoveHandling.selected_mode]
+	if MoveHandling.selected_mode != "easy":
+		move_set = moves[randi() % moves.size()] 
+		
 
 # -- helper function
 func _set_bot_move(move_to_play) -> void:
@@ -50,47 +57,51 @@ var counter_chance = 0.6
 func medium_mode(player_last_move: String):
 	if player_last_move == "":
 		# First turn: totally random
-		last_bot_move = moves[randi() % moves.size()]
+		last_bot_move = move_set[randi() % move_set.size()]
 		_set_bot_move(last_bot_move)
+		return
 
 	var roll = randf()
 
 	if roll < mistake_chance:
 		# Pick something that LOSES to the player's last move
-		var losing_moves = get_moves_that_lose_to(player_last_move)
-		last_bot_move = pick_random(losing_moves)
+		last_bot_move = get_moves_that_lose_to(player_last_move)
 		_set_bot_move(last_bot_move)
 
 	elif roll < counter_chance + mistake_chance:
 		# Pick something that BEATS the player's last move
-		var winning_moves = get_moves_that_beat(player_last_move)
-		last_bot_move = pick_random(winning_moves)
+		last_bot_move = get_moves_that_beat(player_last_move)
 		_set_bot_move(last_bot_move)
 
 	else:
 		# Pick something else from the set
-		var other_moves = moves.duplicate()
-		other_moves.erase(last_bot_move)
+		var other_moves = move_set.duplicate()
+		other_moves.erase(last_bot_move) # avoid repeating the bot's last move
+		other_moves.erase(player_last_move) # optional: avoid copying the player
 		last_bot_move = pick_random(other_moves)
 		_set_bot_move(last_bot_move)
 
+# --- helper functions 
 func pick_random(arr: Array) -> String:
 	return arr[randi() % arr.size()]
 
-func get_moves_that_beat(move: String) -> Array:
-	match move:
-		"rock": return ["paper"]
-		"paper": return ["scissors"]
-		"scissors": return ["rock"]
-		"water": return ["rock"] # Example - use your actual dictionary
-		_:
-			return []
+func _get_move_data(move: String) -> Dictionary:
+	var move_dict = GameLogic.all_moves.find(move)
+	move_dict = GameLogic.all_moves_list[move_dict] # getting the corresponding dictionary
+	return move_dict
 
-func get_moves_that_lose_to(move: String) -> Array:
-	match move:
-		"rock": return ["scissors"]
-		"paper": return ["rock"]
-		"scissors": return ["paper"]
-		"water": return ["paper"] # Example - use your actual dictionary
-		_:
-			return []
+func get_moves_that_beat(move: String, available_moves: Array = move_set) -> String:
+	var move_data = _get_move_data(move)
+	for m in move_data["beat"]:
+		if m in available_moves:
+			return m
+	 # fallback in case something's off
+	return available_moves[randi() % available_moves.size()]
+
+func get_moves_that_lose_to(move: String, available_moves: Array = move_set) -> String:
+	var move_data = _get_move_data(move)
+	for m in move_data["lose"]:
+		if m in available_moves:
+			return m
+	 # fallback in case something's off
+	return available_moves[randi() % available_moves.size()]

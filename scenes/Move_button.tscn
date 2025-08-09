@@ -5,23 +5,31 @@ resource_name = "button_move"
 script/source = "extends Button
 
 @export var move: String
-
+var last_player_move: String = \"\"
+var difficulty_level: String = MoveHandling.selected_mode # easy by default
 func set_move(mov) -> void:
 	move = mov
 	text = mov # just for now:#
+	difficulty_level = MoveHandling.selected_mode
 	MoveHandling.stop_playing.connect(disable_button)
 	MoveHandling.remove_text.connect(renable_button)
 
 func move_feedback() -> void:
 	print(\"you played: \"+ move) # debugging
 	GameHandling.move_played_by_p1 = move # saving the move played 
-	GameHandling.bot_move_determined.emit(move) # passing the moved played to the bot
+	BotLogic.establish_moves()
+	if difficulty_level == \"easy\":
+		GameHandling.easy_mode_bot.emit(move) # passing the moved played to the bot
+	elif  difficulty_level == \"medium\":
+		GameHandling.medium_mode_bot.emit(last_player_move)
+	
 
 func disable_button() -> void:
+	last_player_move = move
 	disabled = true
 	
 func renable_button() -> void:
-	disabled= false
+	disabled = false
 "
 
 [node name="Button" type="Button"]
