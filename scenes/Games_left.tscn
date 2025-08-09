@@ -42,33 +42,95 @@ func change_score(game_numb, result) -> void:
 	add_indicator()
 	GameHandling.restart.emit() # playing next turn
 
-func end_game() -> void:
-	# -- debugging
-	print(\"Checking win/loss condition\")
-	print(\"Turn number is: \", GameHandling.turn_number)
-	print()
-	# --- comapring the ratio of wins to losses
-	var win_ratio = GameHandling.end_game[\"won\"] / score_number
-	var loss_ratio = GameHandling.end_game[\"lost\"] / score_number
-	var tie_ratio = GameHandling.end_game[\"tie\"]/ score_number
-	print(\"win_ratio:\", win_ratio, \" loss_ratio:\", loss_ratio, \" tie_ratio: \", tie_ratio)
+func end_game(player_won: bool) -> void:
+	get_parent().get_node(\"Timer\").queue_free() # remove timer
+	if player_won:
+		print(\"victory\")
+	else:
+		print(\"Game Over\")
+	SceneManager.change_scene(game_over, self, player_won)
+
+#func end_game() -> void:
+	## -- debugging
+	#print(\"Checking win/loss condition\")
+	#print(\"Turn number is: \", GameHandling.turn_number)
+	#print()
+	## --- comapring the ratio of wins to losses
+	#var win_ratio = GameHandling.end_game[\"won\"] / score_number
+	#var loss_ratio = GameHandling.end_game[\"lost\"] / score_number
+	#var tie_ratio = GameHandling.end_game[\"tie\"]/ score_number
+	#print(\"win_ratio:\", win_ratio, \" loss_ratio:\", loss_ratio, \" tie_ratio: \", tie_ratio)
+			#
+	#if GameHandling.turn_number > 1:
+		## -- debugging
+		#print(\"won:\", GameHandling.end_game[\"won\"], \" lost:\", GameHandling.end_game[\"lost\"], \" score_number:\", score_number)
+		#
+		#if win_ratio > loss_ratio:
+			## victory if there are more wins that losses and ties, and losses 
+			#if loss_ratio == 0:
+				#if win_ratio > tie_ratio:
+					#print(\"victory\")
+					#get_parent().get_node(\"Timer\").queue_free() # removing the timer from the tree
+			#else:
+				#if win_ratio >= tie_ratio: 
+					#print(\"victory\")
+					#get_parent().get_node(\"Timer\").queue_free()
+			#SceneManager.change_scene(game_over, self, true)
+		#elif loss_ratio > win_ratio :
+			#if win_ratio == 0:
+				#if loss_ratio > tie_ratio:
+					## Game Over if there are more losses than wins ansd ties
+					#print(\"Game Over\")
+					#get_parent().get_node(\"Timer\").queue_free() # removing the timer from the tree
+			#else:
+				#if win_ratio >= tie_ratio:
+					#print(\"Game Over\")
+					#get_parent().get_node(\"Timer\").queue_free() 
+			#SceneManager.change_scene(game_over, self, false)
 			
-	if GameHandling.turn_number > 1:
-		# -- debugging
-		print(\"won:\", GameHandling.end_game[\"won\"], \" lost:\", GameHandling.end_game[\"lost\"], \" score_number:\", score_number)
-		
-		# There must be a winner and a loser
-		if win_ratio > loss_ratio and (win_ratio >= tie_ratio and loss_ratio > 0):
-			# victory if there are more wins that losses and ties
-			print(\"victory\")
-			get_parent().get_node(\"Timer\").queue_free() # removing the timer from the tree
-			SceneManager.change_scene(game_over, self, true)
-		elif loss_ratio > win_ratio and (loss_ratio >= tie_ratio and win_ratio > 0):
-			# Game Over if there are more losses than wins ansd ties
-			print(\"Game Over\")
-			get_parent().get_node(\"Timer\").queue_free() # removing the timer from the tree
-			SceneManager.change_scene(game_over, self, false)
+
+func check_game_outcome(win_count: float, loss_count: float, tie_count: float) -> void:
+	var total_rounds = win_count + loss_count + tie_count
 	
+	print(\"Checking win/loss condition\")
+	print(\"Turn number is: \", total_rounds)
+	print()
+	
+	# Avoid division by zero
+	if total_rounds == 0:
+		return
+
+	var win_ratio = win_count / total_rounds
+	var loss_ratio = loss_count / total_rounds
+	var tie_ratio = tie_count/ total_rounds
+	print(\"won:\", win_count, \" lost:\", loss_count, \"tie:\", tie_count)
+	print(\"win_ratio:\", win_ratio, \" loss_ratio:\", loss_ratio, \" tie_ratio: \", tie_ratio)
+	
+	# --- First turn special case ---
+	if total_rounds == 1:
+		# Can't win on first turn if loss ratio is 0
+		if loss_ratio == 0:
+			return  # Game continues
+		# If first round is tie, we just keep playing
+		if tie_ratio == 1.0:
+			return
+
+	# --- Tie breaker logic ---
+	# If all but one result are ties, keep playing
+	if (win_count == 1 and loss_count == 0) or (loss_count == 1 and win_count == 0):
+		return
+
+	# Must have at least 2 wins or 2 losses to decide
+	if win_count < 2 and loss_count < 2:
+		return
+
+	# --- Main win/lose check ---
+	if win_ratio > loss_ratio:
+		end_game(true)
+	elif loss_ratio > win_ratio:
+		end_game(false)
+	# If ratios are equal, keep playing
+
 func add_indicator() -> void:
 	if score_added >= 3:
 		# adding more score indicator as needed
@@ -78,7 +140,7 @@ func add_indicator() -> void:
 		games_left = $HBoxContainer.get_children()
 		score_number = $HBoxContainer.get_child_count()
 		
-	end_game()
+	check_game_outcome(GameHandling.end_game[\"won\"], GameHandling.end_game[\"lost\"], GameHandling.end_game[\"tie\"])
 "
 
 [node name="Control" type="Control"]
