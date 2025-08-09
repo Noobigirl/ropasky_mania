@@ -5,7 +5,7 @@ var difficulty_level: String
 
 # -- helper function
 func _set_bot_move(move_to_play) -> void:
-	print(move_to_play)
+	print("Bot plays: ", move_to_play)
 	GameHandling.move_played_by_bot = move_to_play
 
 # ----- Easy Mode bot AI
@@ -20,7 +20,6 @@ func easy_mode(player_move: String):
 	# - choosing a random move from rock, paper, and scissors
 	if first_turn:
 		last_bot_move = moves[randi() % moves.size()]
-		first_turn = false
 		_set_bot_move(last_bot_move)
 	else:
 		if beats(last_bot_move, player_move):

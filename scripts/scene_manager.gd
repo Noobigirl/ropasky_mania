@@ -19,7 +19,8 @@ func change_scene(path, from, transmit = null) -> void:
 	transition.play(animation_in)
 	await transition.animation_finished
 	
-	if transmit !=null: 
+	if transmit != null: 
+		# transmitting text to the newscene
 		 # Manually instance the new scene
 		var new_scene = load(path).instantiate()
 		# Pass the variable if the new scene expects it

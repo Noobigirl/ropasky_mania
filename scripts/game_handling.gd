@@ -8,7 +8,7 @@ signal game_status(game_index, result) # signal sent when the winner of a game i
 signal update_text(text, audio)
 
 var move_played_by_p1: String
-var move_played_by_bot: String 
+var move_played_by_bot: String = "rock" # by default
 var turn_number : int = 0 # number of turns. 
 var warning_update: Array
 
@@ -63,5 +63,5 @@ func update_score() -> void:
 	# passing through the new text and audiofile index
 	update_text.emit(warning_update[0], warning_update[1])
 	
-func replay() -> void:
-	print(0)
+#func replay() -> void:
+	#print(0)

@@ -4,6 +4,7 @@ signal stop_playing
 signal play_animation
 signal remove_text
 
+var selected_mode
 
 var mode : Dictionary = {
 	"easy" = ["rock", "paper","scissors"],
