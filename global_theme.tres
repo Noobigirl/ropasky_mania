@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=14 format=3 uid="uid://dpwataeii3asj"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://dpwataeii3asj"]
 
 [ext_resource type="StyleBox" uid="uid://bimej2b84sipf" path="res://base_button.tres" id="1_ofusn"]
 [ext_resource type="FontFile" uid="uid://caoiaug0fno3q" path="res://assets/Pixel Game.otf" id="2_l7yju"]
@@ -50,6 +50,12 @@ bg_color = Color(0.621748, 0.432349, 0.124324, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m3sy"]
 bg_color = Color(0.337953, 0.2278, 0.0483148, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0lf1r"]
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7ts2r"]
 bg_color = Color(0.190508, 0.12169, 0.0158251, 1)
 border_color = Color(1, 1, 1, 1)
@@ -77,6 +83,7 @@ ScrollContainer/styles/panel = SubResource("StyleBoxFlat_icku4")
 TabBar/styles/button_highlight = SubResource("StyleBoxFlat_mp206")
 TabBar/styles/button_pressed = SubResource("StyleBoxFlat_vp42j")
 TabBar/styles/tab_hovered = SubResource("StyleBoxFlat_3m3sy")
+TabBar/styles/tab_selected = SubResource("StyleBoxFlat_0lf1r")
 TabContainer/styles/panel = SubResource("StyleBoxFlat_7ts2r")
 TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_64won")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxFlat_7aimf")

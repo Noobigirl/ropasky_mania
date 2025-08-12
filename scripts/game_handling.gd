@@ -10,8 +10,8 @@ signal update_text(text, audio)
 
 var move_played_by_p1: String
 var move_played_by_bot: String = "rock" # by default
-var turn_number : int = 0 # number of turns. 
-var warning_update: Array
+var turn_number : int = 0 # number of turns since the begining of the game. 
+var warning_update: Array # array storing the turn number and its outcome
 
 var end_game: Dictionary = {
 	"won": 0.0,

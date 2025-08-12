@@ -10,9 +10,7 @@ func _ready() -> void:
 	$Sprite2D.position = sprite_position
 
 	GameHandling.restart.connect(reset_hand)
-	# bot move determined each time the player selects a move
-	GameHandling.easy_mode_bot.connect(BotLogic.easy_mode)
-	GameHandling.medium_mode_bot.connect(BotLogic.medium_mode)
+
 
 func reveal_move() ->void:
 	move_sprite = load(GameHandling.move_textures[GameHandling.move_played_by_bot])

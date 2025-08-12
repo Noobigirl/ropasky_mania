@@ -6,6 +6,11 @@ var move_set #= moves[randi() % moves.size()]  # for medium and hard
 var last_bot_move = ""
 #var move_to_play: String
 
+func _ready() -> void:
+	# bot move determined each time the player selects a move
+	GameHandling.easy_mode_bot.connect(easy_mode)
+	GameHandling.medium_mode_bot.connect(medium_mode)
+
 func establish_moves() ->void:
 	moves = MoveHandling.mode[MoveHandling.selected_mode]
 	if MoveHandling.selected_mode != "easy":
