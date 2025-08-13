@@ -197,5 +197,6 @@ speed_scale = 2.0
 stream = ExtResource("1_8jokm")
 pitch_scale = 1.05
 mix_target = 2
+bus = &"sfx"
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

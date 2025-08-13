@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgmlcwb3g0lk4"]
+
+[ext_resource type="Script" uid="uid://b4a6du8cyuc8o" path="res://scripts/audio_controller.gd" id="1_qe64h"]
+[ext_resource type="AudioStream" uid="uid://dy4uomfgonxeo" path="res://assets/music/main_music_pixel.wav" id="2_7fvbe"]
+[ext_resource type="AudioStream" uid="uid://dlbdea8lsv11j" path="res://assets/music/Game_music.wav" id="3_c372c"]
+[ext_resource type="AudioStream" uid="uid://blh0704bpwkkt" path="res://assets/music/Game_over_.ogg" id="4_1det4"]
+[ext_resource type="AudioStream" uid="uid://bws8ysnh4lifp" path="res://assets/music/Victory.ogg" id="5_gcxhq"]
+
+[node name="AudioController" type="Node"]
+process_mode = 3
+script = ExtResource("1_qe64h")
+
+[node name="Main" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_7fvbe")
+bus = &"bg_music"
+
+[node name="InGame" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_c372c")
+volume_db = -5.0
+bus = &"bg_music"
+
+[node name="GameOver" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_1det4")
+
+[node name="Victory" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_gcxhq")
