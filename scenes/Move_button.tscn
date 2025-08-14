@@ -1,15 +1,16 @@
 [gd_scene load_steps=2 format=3 uid="uid://cxglhn1gc78q4"]
 
-[sub_resource type="GDScript" id="GDScript_hx5ui"]
-resource_name = "button_move"
-script/source = "extends Button
+[sub_resource type="GDScript" id="GDScript_d0cmg"]
+resource_name = "button_move_margin"
+script/source = "extends MarginContainer
+
 
 @export var move: String
 var last_player_move: String = \"\"
 var difficulty_level: String = MoveHandling.selected_mode # easy by default
 func set_move(mov) -> void:
 	move = mov
-	text = mov # just for now:#
+	$Button.text = mov # just for now:#
 	difficulty_level = MoveHandling.selected_mode
 	MoveHandling.stop_playing.connect(disable_button)
 	MoveHandling.remove_text.connect(renable_button)
@@ -26,27 +27,26 @@ func move_feedback() -> void:
 
 func disable_button() -> void:
 	last_player_move = move
-	disabled = true
+	$Button.disabled = true
 	
 func renable_button() -> void:
-	disabled = false
+	$Button.disabled = false
 "
 
-[node name="Button" type="Button"]
+[node name="MarginContainer" type="MarginContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+script = SubResource("GDScript_d0cmg")
+
+[node name="Button" type="Button" parent="."]
 custom_minimum_size = Vector2(80, 80)
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -35.0
-offset_right = 35.0
-offset_bottom = 35.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
-script = SubResource("GDScript_hx5ui")
 
-[connection signal="pressed" from="." to="." method="move_feedback"]
+[connection signal="pressed" from="Button" to="Button" method="move_feedback"]
+[connection signal="pressed" from="Button" to="." method="move_feedback"]

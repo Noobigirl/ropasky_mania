@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://c1u2cwbqv68vt"]
+[gd_scene load_steps=3 format=3 uid="uid://c1u2cwbqv68vt"]
+
+[ext_resource type="LabelSettings" uid="uid://bjyd03vahonre" path="res://header_style.tres" id="1_5ojai"]
 
 [sub_resource type="GDScript" id="GDScript_law0s"]
 resource_name = "game_end"
@@ -91,6 +93,7 @@ offset_bottom = 374.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 96
 text = "Outcome"
+label_settings = ExtResource("1_5ojai")
 horizontal_alignment = 1
 vertical_alignment = 1
 
