@@ -5,8 +5,9 @@ var move_set = MoveHandling.mode["easy"] # easy mode by default
 
 func set_move_set() -> void:
 	if MoveHandling.selected_mode != "easy" :
-		# choosing a random set of moves
+		# choosing a random set of moves among the available ones
 		move_set = MoveHandling.mode[MoveHandling.selected_mode][randi() % MoveHandling.mode[MoveHandling.selected_mode].size()]
+	BotLogic.establish_moves(move_set)
 	
 
 func create_button() -> void:

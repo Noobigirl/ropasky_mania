@@ -8,7 +8,7 @@ var selected_mode = "easy" # by default
 
 var mode : Dictionary = {
 	"easy" : ["rock", "paper","scissors"],
-	"medium" : [
+	"medium" : [ # balanced moves allowed in medium mode
 				["rock", "scissors", "paper", "water"],
 				["fire", "scissors", "shield", "water"],
 				["sword", "rock", "fire", "paper"],

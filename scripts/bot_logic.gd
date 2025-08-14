@@ -1,21 +1,21 @@
 extends Node
 
 
-var moves #= MoveHandling.mode[MoveHandling.selected_mode]
-var move_set #= moves[randi() % moves.size()]  # for medium and hard
+var moves # easy mode moves
+var move_set # other modes
 var last_bot_move = ""
-#var move_to_play: String
+
 
 func _ready() -> void:
 	# bot move determined each time the player selects a move
 	GameHandling.easy_mode_bot.connect(easy_mode)
 	GameHandling.medium_mode_bot.connect(medium_mode)
 
-func establish_moves() ->void:
-	moves = MoveHandling.mode[MoveHandling.selected_mode]
+func establish_moves(selected_set: Array) ->void:
+	# setting the available bot moves depending on the game mode
+	moves = selected_set
 	if MoveHandling.selected_mode != "easy":
-		move_set = moves[randi() % moves.size()] 
-		
+		move_set =  selected_set
 
 # -- helper function
 func _set_bot_move(move_to_play) -> void:

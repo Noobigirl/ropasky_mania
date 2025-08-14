@@ -14,7 +14,7 @@ func _ready() -> void:
 
 func reveal_move() ->void:
 	move_sprite = load(GameHandling.move_textures[GameHandling.move_played_by_bot])
-	hand_animation.track_set_key_value(1, 3, move_sprite)
+	hand_animation.track_set_key_value(1, 3, move_sprite) # setting the sprite in the animation
 	$AnimationPlayer.play("reveal")
 	BotLogic.check_first_turn()
 	

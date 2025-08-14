@@ -8,6 +8,7 @@ script/source = "extends MarginContainer
 @export var move: String
 var last_player_move: String = \"\"
 var difficulty_level: String = MoveHandling.selected_mode # easy by default
+
 func set_move(mov) -> void:
 	move = mov
 	$Button.text = mov # just for now:#
@@ -18,15 +19,13 @@ func set_move(mov) -> void:
 func move_feedback() -> void:
 	print(\"you played: \"+ move) # debugging
 	GameHandling.move_played_by_p1 = move # saving the move played 
-	BotLogic.establish_moves()
 	if difficulty_level == \"easy\":
 		GameHandling.easy_mode_bot.emit(move) # passing the moved played to the bot
 	elif  difficulty_level == \"medium\":
-		GameHandling.medium_mode_bot.emit(last_player_move)
-	
+		GameHandling.medium_mode_bot.emit(last_player_move)	
 
 func disable_button() -> void:
-	last_player_move = move
+	last_player_move = move # storing the last move played by p1
 	$Button.disabled = true
 	
 func renable_button() -> void:
@@ -48,5 +47,5 @@ layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 1
 
-[connection signal="pressed" from="Button" to="Button" method="move_feedback"]
 [connection signal="pressed" from="Button" to="." method="move_feedback"]
+[connection signal="pressed" from="Button" to="Button" method="move_feedback"]

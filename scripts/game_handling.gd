@@ -63,6 +63,3 @@ func determine_winner() -> void:
 func update_score() -> void:
 	# passing through the new text and audiofile index
 	update_text.emit(warning_update[0], warning_update[1])
-	
-#func replay() -> void:
-	#print(0)
