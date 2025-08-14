@@ -4,6 +4,7 @@ extends Node
 var moves # easy mode moves
 var move_set # other modes
 var last_bot_move = ""
+var last_move_set: Array
 
 
 func _ready() -> void:

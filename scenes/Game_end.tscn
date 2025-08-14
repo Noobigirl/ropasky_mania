@@ -7,11 +7,14 @@ resource_name = "game_end"
 script/source = "extends Control
 
 var transmit
-var last_move_set: Array # storing the moves that were available in the previous game
+var last_move_set: Array
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	
+	if MoveHandling.selected_mode != \"easy\":
+		last_move_set = BotLogic.move_set # storing the previous move_set
+
 	if transmit:
 		$Label.text = \"Victory\"
 		AudioController.play_main.emit(\"Victory\")
@@ -20,17 +23,13 @@ func _ready() -> void:
 		AudioController.play_main.emit(\"GameOver\")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
 func _on_replay_button_pressed() -> void:
 	print(\"scene changed\")
 	SceneManager.change_scene(\"res://scenes/Main_game.tscn\", self)
 
 
 func _on_main_menu_button_pressed() -> void:
+	BotLogic.last_move_set = [] # reseting the last move set to null
 	SceneManager.change_scene(\"res://scenes/Main_menu.tscn\", self)
 	
 "
