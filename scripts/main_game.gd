@@ -6,6 +6,7 @@ var warning_text
 @export var difficulty_level: String
 
 func _ready() -> void:
+	AudioController.play_audio("InGame") # playing the in game music
 	warning_text = $WarningText
 	var player_hand = player.instantiate()
 	var bot_hand = bot.instantiate()

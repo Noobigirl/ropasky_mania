@@ -16,7 +16,7 @@ bus = &"bg_music"
 
 [node name="InGame" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_c372c")
-volume_db = -5.0
+volume_db = -10.0
 bus = &"bg_music"
 
 [node name="GameOver" type="AudioStreamPlayer" parent="."]

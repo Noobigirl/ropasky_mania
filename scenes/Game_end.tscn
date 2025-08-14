@@ -8,10 +8,13 @@ var transmit
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	if transmit:
 		$Label.text = \"Victory\"
+		AudioController.play_main.emit(\"Victory\")
 	else: 
 		$Label.text= \"Game Over\"
+		AudioController.play_main.emit(\"GameOver\")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -20,6 +20,7 @@ one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_5lxq6")
+volume_db = -5.0
 bus = &"sfx"
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="."]
