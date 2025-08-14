@@ -20,8 +20,8 @@ GameLogic="*res://scripts/game_logic.gd"
 MoveHandling="*res://scripts/move_handling.gd"
 GameHandling="*res://scripts/game_handling.gd"
 BotLogic="*res://scripts/bot_logic.gd"
-AudioController="*res://scripts/audio_controller.gd"
 SceneManager="*res://scenes/Scene_manager.tscn"
+AudioController="*res://scenes/Audio_controller.tscn"
 
 [display]
 

@@ -2,7 +2,7 @@ extends Node
 
 
 func play_audio(audio_name: String) -> void:
-	var active_stream = $Main
+	var active_stream = get_node(audio_name)
 	print(active_stream)
 	active_stream.play()
 	
