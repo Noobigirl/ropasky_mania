@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://dpwataeii3asj"]
+[gd_resource type="Theme" load_steps=16 format=3 uid="uid://dpwataeii3asj"]
 
 [ext_resource type="StyleBox" uid="uid://bimej2b84sipf" path="res://base_button.tres" id="1_ofusn"]
 [ext_resource type="FontFile" uid="uid://caoiaug0fno3q" path="res://assets/Pixel Game.otf" id="2_l7yju"]
@@ -28,6 +28,9 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yeggv"]
+bg_color = Color(0.502926, 0.347829, 0.0923228, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icku4"]
 bg_color = Color(0.377905, 0.172251, 0.00434678, 1)
@@ -77,6 +80,7 @@ Button/styles/disabled = SubResource("StyleBoxFlat_ap137")
 Button/styles/focus = SubResource("StyleBoxFlat_ofusn")
 Button/styles/hover = SubResource("StyleBoxFlat_l7yju")
 Button/styles/normal = ExtResource("1_ofusn")
+Button/styles/pressed = SubResource("StyleBoxFlat_yeggv")
 FlatButton/styles/normal = null
 Label/fonts/font = ExtResource("2_l7yju")
 ScrollContainer/styles/panel = SubResource("StyleBoxFlat_icku4")

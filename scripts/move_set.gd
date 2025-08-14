@@ -9,13 +9,12 @@ func set_move_set() -> void:
 			move_set = BotLogic.last_move_set
 			BotLogic.establish_moves(move_set) # passing the last set of moves
 			return
-		# choosing a random set of moves among the available ones
+		# choosing a new random set of moves among the available ones
 		move_set = MoveHandling.mode[MoveHandling.selected_mode][randi() % MoveHandling.mode[MoveHandling.selected_mode].size()]
 		BotLogic.last_move_set = move_set
 	else:
 			move_set = MoveHandling.mode["easy"]
 	BotLogic.establish_moves(move_set)
-	
 
 func create_button() -> void:
 	set_move_set()
