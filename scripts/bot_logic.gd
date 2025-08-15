@@ -31,7 +31,7 @@ func check_first_turn() -> void:
 	first_turn = !first_turn
 	
 func easy_mode(player_move: String):
-	# - choosing a random move from rock, paper, and scissors
+	# - choosing a random move from rock, paper, and scissors on the first turn
 	if first_turn:
 		last_bot_move = moves[randi() % moves.size()]
 		_set_bot_move(last_bot_move)
@@ -46,13 +46,11 @@ func easy_mode(player_move: String):
 			last_bot_move = available_moves[randi() % available_moves.size()]
 			_set_bot_move(last_bot_move)
 
-
 func beats(move_a: String, move_b: String) -> bool:
 		if (move_a == "rock" and move_b == "scissors") or (move_a == "scissors" and move_b == "paper") or (move_a == "paper" and move_b == "rock"):
 			return true
 		else: 
 			return false
-
 
 
 ### --- Medium mode bot AI
@@ -62,12 +60,12 @@ var counter_chance = 0.6
 
 func medium_mode(player_last_move: String):
 	if player_last_move == "":
-		# First turn: totally random
+		# First turn: choosing a random move
 		last_bot_move = move_set[randi() % move_set.size()]
 		_set_bot_move(last_bot_move)
 		return
 
-	var roll = randf()
+	var roll = randf() # drawing a float number between 0 and 1
 
 	if roll < mistake_chance:
 		# Pick something that LOSES to the player's last move
@@ -83,7 +81,7 @@ func medium_mode(player_last_move: String):
 		# Pick something else from the set
 		var other_moves = move_set.duplicate()
 		other_moves.erase(last_bot_move) # avoid repeating the bot's last move
-		other_moves.erase(player_last_move) # optional: avoid copying the player
+		other_moves.erase(player_last_move) # avoid copying the player
 		last_bot_move = pick_random(other_moves)
 		_set_bot_move(last_bot_move)
 
@@ -111,3 +109,10 @@ func get_moves_that_lose_to(move: String, available_moves: Array = move_set) -> 
 			return m
 	 # fallback in case something's off
 	return available_moves[randi() % available_moves.size()]
+
+
+### Hard mode bot AI
+
+var hmistake_chance = 0.05
+var corruption_chance = 0.2
+var hcounter_chance = 0.7 # the rest is random
