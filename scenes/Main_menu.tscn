@@ -135,12 +135,14 @@ metadata/_edit_lock_ = true
 position = Vector2(435, 471)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_qtdab")
+metadata/_edit_lock_ = true
 
 [node name="Shield_hand" type="Sprite2D" parent="."]
 position = Vector2(257, 302)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("3_qtdab")
 flip_v = true
+metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -167,6 +169,7 @@ position = Vector2(91, 465)
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_ow2sg")
 flip_h = true
+metadata/_edit_lock_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

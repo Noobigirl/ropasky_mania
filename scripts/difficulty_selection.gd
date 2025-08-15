@@ -7,3 +7,8 @@ func _on_easy_play_button_pressed() -> void:
 func _on_medium_play_button_pressed() -> void:
 	MoveHandling.selected_mode = "medium"
 	SceneManager.change_scene("res://scenes/Main_game.tscn", self)
+
+
+func _on_hard_play_button_pressed() -> void:
+	MoveHandling.selected_mode = "hard"
+	SceneManager.change_scene("res://scenes/Main_game.tscn", self)

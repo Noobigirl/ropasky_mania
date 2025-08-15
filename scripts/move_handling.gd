@@ -15,7 +15,14 @@ var mode : Dictionary = {
 				["shield", "sword", "paper", "fire"],
 				["water", "sword", "rock", "fire"]
 	],
-	"hard" : []
+	"hard" : [
+		# balanced moves allowed in medium mode + corruption
+				["rock", "scissors", "paper", "water", "corruption"],
+				["fire", "scissors", "shield", "water", "corruption"],
+				["sword", "rock", "fire", "paper", "corruption"],
+				["shield", "sword", "paper", "fire", "corruption"],
+				["water", "sword", "rock", "fire", "corruption"]
+	]
 }
 
 

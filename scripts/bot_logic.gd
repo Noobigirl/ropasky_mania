@@ -11,6 +11,7 @@ func _ready() -> void:
 	# bot move determined each time the player selects a move
 	GameHandling.easy_mode_bot.connect(easy_mode)
 	GameHandling.medium_mode_bot.connect(medium_mode)
+	GameHandling.hard_mode_bot.connect(hard_mode)
 
 func establish_moves(selected_set: Array) ->void:
 	# setting the available bot moves depending on the game mode
@@ -116,3 +117,48 @@ func get_moves_that_lose_to(move: String, available_moves: Array = move_set) -> 
 var hmistake_chance = 0.05
 var corruption_chance = 0.2
 var hcounter_chance = 0.7 # the rest is random
+
+func hard_mode(player_last_move: String, win_ratio, loss_ratio):
+	if player_last_move == "":
+		# First turn: 50% counter to a random guess, 50% random
+		if randf() < 0.5:
+			var guess = pick_random(move_set)
+			last_bot_move = get_moves_that_beat(guess, move_set)
+		else:
+			last_bot_move = pick_random(move_set)
+		_set_bot_move(last_bot_move)
+		return
+	
+	var roll = randf()
+
+	if roll < hmistake_chance:
+		# Pick something that LOSES to the player's last move
+		last_bot_move = get_moves_that_lose_to(player_last_move, move_set)
+		_set_bot_move(last_bot_move)
+	
+	elif roll < hmistake_chance + corruption_chance:
+		# Smart corruption: only use if player is close to winning
+		if _player_about_to_win(win_ratio, loss_ratio):
+			last_bot_move = "corruption"
+		else:
+			last_bot_move = pick_random(move_set)
+		_set_bot_move(last_bot_move)
+	
+	elif roll < hmistake_chance + corruption_chance + hcounter_chance:
+		# Pick something that BEATS the player's last move
+		last_bot_move = get_moves_that_beat(player_last_move, move_set)
+		_set_bot_move(last_bot_move)
+	
+	else:
+		# Pick something else, but avoid last move for variety
+		var other_moves = move_set.duplicate()
+		other_moves.erase(last_bot_move)
+		last_bot_move = pick_random(other_moves)
+		_set_bot_move(last_bot_move)
+
+
+func _player_about_to_win(wins, losses) -> bool:
+	# Player is winning and 1 more win will end the game
+	if wins > losses and (wins + 1) > losses:
+		return true
+	return false

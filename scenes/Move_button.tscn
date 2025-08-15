@@ -20,9 +20,11 @@ func move_feedback() -> void:
 	print(\"you played: \"+ move) # debugging
 	GameHandling.move_played_by_p1 = move # saving the move played 
 	if difficulty_level == \"easy\":
-		GameHandling.easy_mode_bot.emit(move) # passing the moved played to the bot
+		GameHandling.easy_mode_bot.emit(move) # passing the move played to the bot
 	elif  difficulty_level == \"medium\":
-		GameHandling.medium_mode_bot.emit(last_player_move)	
+		GameHandling.medium_mode_bot.emit(last_player_move)
+	else: # passing the move played and the current status of the game to the bot
+		GameHandling.hard_mode_bot.emit(last_player_move, GameHandling.end_game[\"won\"], GameHandling.end_game[\"lost\"])
 
 func disable_button() -> void:
 	last_player_move = move # storing the last move played by p1

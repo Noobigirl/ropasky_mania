@@ -5,6 +5,7 @@ signal restart
 signal score_changed
 signal easy_mode_bot(player_move)
 signal medium_mode_bot(last_player_move)
+signal hard_mode_bot(last_player_move, wins, losses)
 signal game_status(game_index, result) # signal sent when the winner of a game is deterined
 signal update_text(text, audio)
 
