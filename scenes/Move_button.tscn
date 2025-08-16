@@ -8,6 +8,7 @@ script/source = "extends MarginContainer
 @export var move: String
 var last_player_move: String = \"\"
 var difficulty_level: String = MoveHandling.selected_mode # easy by default
+var perm_disabled: bool = false
 
 func set_move(mov) -> void:
 	move = mov
@@ -18,6 +19,17 @@ func set_move(mov) -> void:
 
 func move_feedback() -> void:
 	print(\"you played: \"+ move) # debugging
+	
+	if move == \"corruption\":
+		GameHandling.player_corruption_left -= 1
+		# only allowing the player to use corruption 3 times
+		if GameHandling.player_corruption_left <= 0:
+			perm_disabled = true
+			$Button.disabled = true
+			move = \"\"
+			return
+			
+	print(\"corruptions left: \", GameHandling.player_corruption_left)		
 	GameHandling.move_played_by_p1 = move # saving the move played 
 	if difficulty_level == \"easy\":
 		GameHandling.easy_mode_bot.emit(move) # passing the move played to the bot
@@ -31,7 +43,8 @@ func disable_button() -> void:
 	$Button.disabled = true
 	
 func renable_button() -> void:
-	$Button.disabled = false
+	if not perm_disabled: # corruption button must not be reanabled
+		$Button.disabled = false
 "
 
 [node name="MarginContainer" type="MarginContainer"]

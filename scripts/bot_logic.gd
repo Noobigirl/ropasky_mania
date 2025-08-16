@@ -139,7 +139,12 @@ func hard_mode(player_last_move: String, win_ratio, loss_ratio):
 	elif roll < hmistake_chance + corruption_chance:
 		# Smart corruption: only use if player is close to winning
 		if _player_about_to_win(win_ratio, loss_ratio):
-			last_bot_move = "corruption"
+			# the bot can only use corruption 3 times
+			if GameHandling.bot_corrupton_left > 0:
+				GameHandling.bot_corrupton_left -= 1
+				last_bot_move = "corruption"
+			else:
+				last_bot_move = pick_random(move_set)
 		else:
 			last_bot_move = pick_random(move_set)
 		_set_bot_move(last_bot_move)

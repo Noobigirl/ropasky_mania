@@ -13,6 +13,9 @@ var move_played_by_p1: String
 var move_played_by_bot: String = "rock" # by default
 var turn_number : int = 0 # number of turns since the begining of the game. 
 var warning_update: Array # array storing the turn number and its outcome
+# only allowing 3 
+var player_corruption_left: int = 3
+var bot_corrupton_left: int = 3
 
 var end_game: Dictionary = {
 	"won": 0.0,
