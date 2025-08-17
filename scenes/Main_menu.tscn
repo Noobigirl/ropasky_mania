@@ -20,13 +20,14 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_play_button_pressed() -> void:
 	SceneManager.change_scene(\"res://scenes/Difficulty_selection.tscn\", self)
 
-
 func _on_github_pressed() -> void:
 	OS.shell_open(\"https://github.com/Noobigirl/ropasky_mania\")
+
+func _on_options_pressed() -> void:
+	pass # Replace with function body. 
 "
 
 [sub_resource type="Animation" id="Animation_610dt"]
@@ -201,7 +202,8 @@ text = "Play"
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button2" type="Button" parent="VBoxContainer/HBoxContainer"]
+[node name="Options" type="Button" parent="VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -222,4 +224,5 @@ libraries = {
 }
 
 [connection signal="pressed" from="VBoxContainer/Play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/Github" to="." method="_on_github_pressed"]
