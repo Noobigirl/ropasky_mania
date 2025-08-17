@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c4wxcr4xgkeny" path="res://assets/sprites/timer/clock.png" id="3_bi5oq"]
 [ext_resource type="Texture2D" uid="uid://cqksgc4lf1od" path="res://assets/sprites/timer/filler.png" id="4_uktcg"]
 
-[node name="Control" type="Control"]
+[node name="Control2" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
