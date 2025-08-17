@@ -150,12 +150,12 @@ func hard_mode(player_last_move: String, win_ratio, loss_ratio):
 		_set_bot_move(last_bot_move)
 	
 	elif roll < hmistake_chance + corruption_chance + hcounter_chance:
-		# Pick something that BEATS the player's last move
+		# picking something that BEATS the player's last move
 		last_bot_move = get_moves_that_beat(player_last_move, move_set)
 		_set_bot_move(last_bot_move)
 	
 	else:
-		# Pick something else, but avoid last move for variety
+		# picking something else, but avoid last move for variety
 		var other_moves = move_set.duplicate()
 		other_moves.erase(last_bot_move)
 		last_bot_move = pick_random(other_moves)

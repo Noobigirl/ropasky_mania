@@ -3,7 +3,7 @@
 
 ## 👩🏿‍🔧 Basic Explanation
 
-Rock Paper Scissors ...on steroids. That is a great way to describe **Ropasky Mania**: A turn based party/strategy game where
+Rock, Paper, Scissors… with a wild twist! That’s the spirit of **Ropasky Mania**, a fast-paced, turn-based party strategy game where you go head-to-head against a cunning bot
 
 ---
 
@@ -32,14 +32,14 @@ Also, I want to test how much I’ve improved since my last Godot project.
 - Multiple difficulty levels for bots
 - Countdown timer to add pressure and intensity.
 - Smooth hand animations (I'll try my best) and visuals.
-- Expandable rule system (custom interactions between moves).
+- Custom interactions between moves (not adde yet).
 
 ---
 
 ## 🚀 Stretch Goals
 
-- Multiplayer mode with 1v1 and 2v2
-- Customizable hand skins (may be unlocked)
+- Multiplayer 1v1 mode
+- Customizable hand skins (unlockable)
 - Leaderboards
 
 ---
@@ -53,7 +53,6 @@ I will consider the project complete if:
 - A polished splash screen and menu are included
 - The game is uploaded to GitHub with screenshots and gameplay videos
 - It’s published on Itch.io with a good description and visuals
-- The project includes a solid README and dev documentation
 
 ---
 

@@ -96,7 +96,7 @@ metadata/_tab_index = 1
 [node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Medium"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
-text = "The bot is better at countering your moves. You better play smart."
+text = "The bot is better at countering your moves. You need to be strategic"
 
 [node name="Medium_play_button" type="Button" parent="TabContainer/Medium/RichTextLabel"]
 layout_mode = 1
@@ -128,7 +128,7 @@ metadata/_tab_index = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="TabContainer/Hard"]
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 32
-text = "The bot is imprevisible"
+text = "The bot is imprevisible. Prepare yourself for the worst."
 
 [node name="Hard_play_button" type="Button" parent="TabContainer/Hard/RichTextLabel"]
 layout_mode = 1
@@ -149,6 +149,7 @@ theme_override_font_sizes/font_size = 48
 text = "Play"
 
 [node name="Button" type="Button" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
