@@ -1,4 +1,4 @@
-
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
 # 🎭 Ropasky Mania 
 
 ## 👩🏿‍🔧 Basic Explanation
@@ -55,6 +55,12 @@ I will consider the project complete if:
 - It’s published on Itch.io with a good description and visuals
 
 ---
+## 🪽 Summary of the dev process
+Compared to my last project, this one went a lot more smoothly. The biggest challenges were adding the bot’s hand 
+to the main scene and making it independent from the player’s hand (I’m still getting used to how Godot handles OOP), as well as building the bot algorithms for each difficulty level. 
+I really enjoyed making the art myself, and I was especially proud of the music (I honestly didn’t expect it to turn out that well.)
+
+---
 
 ## 💻 Tech Stack
 
@@ -68,4 +74,4 @@ I will consider the project complete if:
 - **Sound effects**: [SoundReality] on pixabay
 					Sound Effect by [DRAGON-STUDIO](https://pixabay.com/users/dragon-studio-38165424/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=37689) from `Pixabay`(https://pixabay.com//?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=376897)
 - **Images**: [Freepik](https://www.flaticon.com/free-icons/fist)
-**Font**: [suhadidesign](https://www.1001fonts.com/pixel-game-font.html#license)
+- **Font**: [suhadidesign](https://www.1001fonts.com/pixel-game-font.html#license)
